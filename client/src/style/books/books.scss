@@ -1,0 +1,67 @@
+#root{
+    height: auto;
+}
+.App{
+    height: auto;
+}
+#ListBooks{
+    width: 1280px;
+    min-height: 100vh;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    background-color: rgb(203, 219, 219);
+    box-shadow: 3px 3px 3px 1px;
+    .Books{
+        grid-column: 3/9;
+        display: grid;
+        grid-template-rows: repeat(15, 1fr);    
+        margin-left: 15%;
+        margin-right: 15%;
+        height: auto;
+
+        .top{
+            grid-row: 1/2;
+
+        }
+        .center{
+            grid-row: 2/15;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer{
+            grid-row: 15/16;
+            background-color: rgb(226, 226, 226);
+            padding: 5% 0% 3% 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    } 
+}
+
+@media all and (max-width: 320px){
+        #ListBooks{
+        width: 320px;
+        grid-template-columns: repeat(1);
+        grid-template-rows: repeat(2);
+        .Books{
+            grid-row: 2/3;
+            grid-column: 1;
+            width: 240px;
+        }
+       
+    }
+}
+
+@media (max-width: 640px) and (min-width: 320px){
+        #ListBooks{
+        width: auto;
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 640px){
+        #ListBooks{
+        width: auto;
+    }
+}

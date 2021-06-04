@@ -1,0 +1,57 @@
+#Book {
+  margin: 1%;
+}
+
+#Book .all {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+#Book .all .image {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+#Book .all .image img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 3px 3px 3px 3px;
+          box-shadow: 3px 3px 3px 3px;
+  position: relative;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#Book .all .image img {
+  max-width: 200px;
+  max-height: 300px;
+  -webkit-box-shadow: 3px 3px 3px 3px;
+          box-shadow: 3px 3px 3px 3px;
+}
+
+#Book .all .content {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=book.css.map */

@@ -1,0 +1,68 @@
+.Menu {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #3273dc;
+  -webkit-box-shadow: 3px 3px 3px 1px;
+          box-shadow: 3px 3px 3px 1px;
+}
+
+.Menu div {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.Menu div:hover {
+  cursor: pointer;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-box-shadow: 3px 3px 3px 3px;
+          box-shadow: 3px 3px 3px 3px;
+  position: relative;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+@media all and (max-width: 320px) {
+  .Menu {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    width: 320px;
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 320px) {
+  .Menu {
+    width: auto;
+  }
+  .Menu div .title {
+    font-size: 130%;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 640px) {
+  .Menu {
+    width: auto;
+  }
+  .Menu h1 {
+    font-size: auto;
+  }
+  .Menu div .title {
+    font-size: auto;
+  }
+}
+/*# sourceMappingURL=menu.css.map */
