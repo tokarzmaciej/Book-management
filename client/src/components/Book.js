@@ -4,8 +4,6 @@ import "../style/book/book.css";
 
 function Book({ id, title, author, release_date, image_url }) {
 
-
-
     return (
         <div id="Book">
             <div className="box has-background-link-light is-size-4">
@@ -21,7 +19,7 @@ function Book({ id, title, author, release_date, image_url }) {
                             <p className="title  is-size-7-mobile is-size-4-tablet has-text-danger-dark">Author</p>
                             <p className="title  is-size-7-mobile is-size-4-tablet">*  {author}</p>
                             <p className="title  is-size-7-mobile is-size-4-tablet  has-text-link-dark">Release date</p>
-                            <p className="title  is-size-7-mobile is-size-4-tablet has-text-">*  {release_date.slice(0, 10)}</p>
+                            <p className="title  is-size-7-mobile is-size-4-tablet">*  {release_date.slice(0, 10)}</p>
                         </div>
                         <div className="image">
                             <img src={image_url} alt="img" />
