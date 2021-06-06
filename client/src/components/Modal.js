@@ -1,7 +1,7 @@
 import React from 'react';
 import FormBook from './FormBook';
 
-function Modal({ setView, copyBooks }) {
+function Modal({ id, idPage, setView, copyBooks, setCopy, setBooks }) {
 
     return (
         <div className="modal is-active">
@@ -12,9 +12,15 @@ function Modal({ setView, copyBooks }) {
                     <button className="delete" aria-label="close" onClick={() => setView(false)}></button>
                 </header>
                 <section className="modal-card-body">
-                    <FormBook copyBooks={copyBooks} setView={setView} />
+                    <FormBook
+                        id={id}
+                        idPage={idPage}
+                        copyBooks={copyBooks}
+                        setView={setView}
+                        setCopy={setCopy}
+                        setBooks={setBooks}
+                    />
                 </section>
-
             </div>
         </div>
     );

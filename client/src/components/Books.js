@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 
 function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
     setActualSort, copyBooks, category, setCategory, genres, redirect, setRedirect,
-    setAuthor, author }) {
+    setAuthor, author, setCopy }) {
 
     const [text, setText] = useState("");
 
@@ -69,7 +69,11 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                             filters={filters}
                             author={author}
                             text={text}
-                            copyBooks={copyBooks} />
+                            copyBooks={copyBooks}
+                            setCopy={setCopy}
+                            idPage={id}
+                            setBooks={setBooks}
+                        />
                     </div>
                     <div className="down">
                         <Checkbox category={category}

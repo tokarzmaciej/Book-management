@@ -2,12 +2,16 @@
     margin: 1%;
     margin-bottom: 3%;
     .notification{
+        a{
+            text-decoration: none;
+        }
         .all{
             display: grid;
             grid-template-columns: repeat(2,1fr);
             .image{
                     grid-column: 1/2;
                     grid-row: 1/2;
+                    margin-top: 10%;
                     img:hover {
                         cursor: pointer;
                         transform: scale(1.1);

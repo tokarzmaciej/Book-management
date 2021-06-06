@@ -1,5 +1,6 @@
 import React from 'react';
 import "../style/book/book.css";
+import { Link } from 'react-router-dom';
 
 
 function Book({ id, title, author, release_date, image_url }) {
@@ -13,16 +14,16 @@ function Book({ id, title, author, release_date, image_url }) {
                         }
                     }}>
                     </button>
-                    <p className="title  is-size-6-mobile is-size-3-tablet has-text-grey-dark has-text-weight-bold">{title}</p>
+                    <Link to={`/book/${id}`} className="title is-size-6-mobile is-size-3-tablet has-text-grey-dark has-text-weight-bold">{title}</Link>
                     <div className="all">
                         <div className="content">
-                            <p className="title  is-size-7-mobile is-size-4-tablet has-text-danger-dark">Author</p>
-                            <p className="title  is-size-7-mobile is-size-4-tablet">*  {author}</p>
-                            <p className="title  is-size-7-mobile is-size-4-tablet  has-text-link-dark">Release date</p>
-                            <p className="title  is-size-7-mobile is-size-4-tablet">*  {release_date.slice(0, 10)}</p>
+                            <u className="title  is-size-7-mobile is-size-4-tablet has-text-danger-dark">Author</u>
+                            <p className="title  is-size-7-mobile is-size-4-tablet ml-2">{author}</p>
+                            <u className="title  is-size-7-mobile is-size-4-tablet  has-text-link-dark">Release date</u>
+                            <p className="title  is-size-7-mobile is-size-4-tablet ml-2">{release_date.slice(0, 10)}</p>
                         </div>
                         <div className="image">
-                            <img src={image_url} alt="img" />
+                            <Link to={`/book/${id}`}><img src={image_url} alt="img" /></Link>
                         </div>
                     </div>
 

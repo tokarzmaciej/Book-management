@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Books from "./Books";
 import Favourites from './Favourites';
 import TopFive from './TopFive';
+import DetailsBook from './DetailsBook';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -48,6 +49,7 @@ function App() {
               actualSort={actualSort}
               setActualSort={setActualSort}
               copyBooks={copyBooks}
+              setCopy={setCopy}
               category={category}
               setCategory={setCategory}
               genres={genres}
@@ -57,6 +59,9 @@ function App() {
               setAuthor={setAuthor}
             />}
           />
+          <Route exact path="/book/:id" component={(routerProps) =>
+            <DetailsBook id={routerProps.match.params.id} actualBooks={books} setBooks={setBooks}
+              copyBooks={copyBooks} setCopy={setCopy} />} />
           <Route exact path="/favourites" component={Favourites} />
         </Switch>
       </Router>

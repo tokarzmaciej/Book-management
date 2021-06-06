@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
-function FormBook({ id, copyBooks, setView }) {
-
+function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     const initial = {
         title: "",
         author: "",
@@ -14,7 +14,7 @@ function FormBook({ id, copyBooks, setView }) {
     };
 
     const titles = copyBooks.reduce((total, { title }) => {
-        return !total.includes(title) ? [...total, title] : total;
+        return !total.includes(title.toUpperCase()) ? [...total, title.toUpperCase()] : total;
     }, []);
 
     const formatter = (object) => {
@@ -29,12 +29,12 @@ function FormBook({ id, copyBooks, setView }) {
     const [newBook, setNewBook] = useState(initial);
     const [post, setSendPost] = useState(false);
     const [put, setSendPut] = useState(false);
-
+    const [redirect, setRedirect] = useState(false);
     useEffect(() => {
         if (id !== undefined) {
             axios.get(`http://localhost:5000/api/book/${id}`)
                 .then((res) => {
-                    setNewBook(res.data)
+                    setNewBook(res.data);
                 })
                 .catch((err) => console.log(err));
         };
@@ -45,27 +45,40 @@ function FormBook({ id, copyBooks, setView }) {
             axios.put(`http://localhost:5000/api/book/${id}`, formatter(newBook))
                 .then((res) => {
                     setSendPut(false)
+                    setView(false);
+                    const update = copyBooks.map(book => book.id === parseInt(id) ? { ...book, ...res.data } : book);
+                    setCopy(update);
+                    setBooks(update);
                 })
                 .catch((err) => console.log(err));
         };
-    }, [put, newBook, id]);
+    }, [put, newBook, id, setView, setCopy, setBooks, copyBooks]);
 
     useEffect(() => {
         if (post) {
             axios.post("http://localhost:5000/api/book", formatter(newBook))
                 .then((res) => {
-                    console.log(res.data);
+                    if (res.status === 200) {
+                        setRedirect(true);
+                        setSendPost(false);
+                        setView(false);
+                        setCopy([res.data, ...copyBooks]);
+                        setBooks([res.data, ...copyBooks]);
+                    } else {
+                        alert(res.data)
+                    }
+
                 })
                 .catch((err) => console.log(err));
         };
-    }, [newBook, post]);
+    }, [newBook, post, setCopy, copyBooks, setView, setBooks]);
 
     const validate = ({ title, author, genre, image_url, release_date }) => {
         const errors = {};
         if (title === "") {
             errors.title = 'Required*';
         };
-        if (titles.includes(title)) {
+        if (titles.includes(title.toUpperCase()) && put) {
             errors.title = 'This title already exists';
         };
         if (author === "") {
@@ -91,7 +104,6 @@ function FormBook({ id, copyBooks, setView }) {
             if (window.confirm('Are you sure you want to send?')) {
                 setNewBook({ ...newBook, ...values });
                 setSendPost(true);
-                setView(false);
             };
         }
         else {
@@ -103,7 +115,9 @@ function FormBook({ id, copyBooks, setView }) {
     const handleChange = (key, event) => {
         setNewBook({ ...newBook, [key]: event.target.value });
         setSendPut(false);
+        setSendPost(false);
     };
+
     const reset = (resetForm) => {
         if (window.confirm('Are you sure you want to reset?')) {
             resetForm(initial);
@@ -122,25 +136,25 @@ function FormBook({ id, copyBooks, setView }) {
             {({ handleSubmit, resetForm, initialValues: { title, author, genre, release_date, image_url, description } }) => (
                 <Form onSubmit={handleSubmit}>
                     <div className="primary">
-                        <Field className="input" name="title" placeholder="Title" value={title}
+                        <Field className="input is-rounded" name="title" placeholder="Title" value={title}
                             onChange={(event) => handleChange("title", event)} />
                         <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="title" /></h5>
 
-                        <Field className="input" name="author" placeholder="Author" value={author}
+                        <Field className="input is-rounded" name="author" placeholder="Author" value={author}
                             onChange={(event) => handleChange("author", event)} />
                         <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="author" /></h5>
 
-                        <Field className="input" name="genre" placeholder="Genre" value={genre}
+                        <Field className="input is-rounded" name="genre" placeholder="Genre" value={genre}
                             onChange={(event) => handleChange("genre", event)} />
                         <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="genre" /></h5>
                     </div>
 
                     <div className="details">
-                        <Field className="input" type="date" name="release_date" value={release_date}
+                        <Field className="input is-rounded" type="date" name="release_date" value={release_date.slice(0, 10)}
                             onChange={(event) => handleChange("release_date", event)} />
                         <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="release_date" /></h5>
 
-                        <Field className="input" name="image_url" placeholder="Image url" value={image_url}
+                        <Field className="input is-rounded" name="image_url" placeholder="Image url" value={image_url}
                             onChange={(event) => handleChange("image_url", event)} />
                         <h5 className="valueText is-size-7  has-text-danger" ><ErrorMessage name="image_url" /></h5>
                     </div>
@@ -158,6 +172,7 @@ function FormBook({ id, copyBooks, setView }) {
                         </button>
                         <button type="submit" className="button is-success">Save changes</button>
                     </footer>
+                    {redirect ? <Redirect to={`/books/${idPage}`} /> : null}
                 </Form>
             )}
         </Formik>

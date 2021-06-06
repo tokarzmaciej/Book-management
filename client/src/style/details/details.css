@@ -1,0 +1,171 @@
+#DetailsBook {
+  width: 1280px;
+  min-height: 100vh;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  background-color: #cbdbdb;
+  -webkit-box-shadow: 3px 3px 3px 1px;
+          box-shadow: 3px 3px 3px 1px;
+}
+
+#DetailsBook .Book {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 6;
+  grid-column: 3/9;
+  margin: 8%;
+}
+
+#DetailsBook .Book .notification {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (13vh)[9];
+      grid-template-rows: repeat(9, 13vh);
+}
+
+#DetailsBook .Book .notification .header {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  margin-top: -3%;
+}
+
+#DetailsBook .Book .notification .header button {
+  border: 2px solid;
+}
+
+#DetailsBook .Book .notification .header p {
+  margin-top: 2%;
+}
+
+#DetailsBook .Book .notification .header .modal button {
+  border: 0px solid;
+}
+
+#DetailsBook .Book .notification .header .modal form {
+  margin: 0% 1% 3% 1%;
+}
+
+#DetailsBook .Book .notification .header .modal form .primary {
+  margin: 0% 5% 3% 5%;
+}
+
+#DetailsBook .Book .notification .header .modal form .primary input {
+  margin-bottom: 1%;
+  border: 2px solid #427baa;
+}
+
+#DetailsBook .Book .notification .header .modal form .details {
+  margin: 0% 5% 2% 5%;
+}
+
+#DetailsBook .Book .notification .header .modal form .details input {
+  margin-bottom: 1%;
+  border: 2px solid #6e7e8d;
+}
+
+#DetailsBook .Book .notification .header .modal form .description {
+  margin: 0% 5% 3% 5%;
+  border: 2px solid gray;
+}
+
+#DetailsBook .Book .notification .header .modal form footer {
+  margin: 0% 5% 3% 5%;
+}
+
+#DetailsBook .Book .notification .center {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  grid-row: 2/5;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+#DetailsBook .Book .notification .center .image {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#DetailsBook .Book .notification .center .image img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 3px 3px 3px 3px;
+          box-shadow: 3px 3px 3px 3px;
+  position: relative;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#DetailsBook .Book .notification .center .image img {
+  max-width: 200px;
+  max-height: 300px;
+  -webkit-box-shadow: 3px 3px 3px 3px;
+          box-shadow: 3px 3px 3px 3px;
+}
+
+#DetailsBook .Book .notification .center .content {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0% 0% 20% 25%;
+}
+
+#DetailsBook .Book .notification .center .content p {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+#DetailsBook .Book .notification .description {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 5;
+  grid-row: 5/10;
+}
+
+@media all and (max-width: 375px) {
+  #DetailsBook {
+    width: 375px;
+    -ms-grid-columns: ()[1];
+        grid-template-columns: repeat(1);
+    -ms-grid-rows: ()[2];
+        grid-template-rows: repeat(2);
+  }
+}
+
+@media (max-width: 640px) and (min-width: 375px) {
+  #DetailsBook {
+    width: auto;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 640px) {
+  #DetailsBook {
+    width: auto;
+  }
+}
+/*# sourceMappingURL=details.css.map */

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 
-function BooksUp({ category, setText, filters, author, text, copyBooks }) {
+function BooksUp({ idPage, category, setText, filters, author, text, copyBooks, setCopy, setBooks }) {
     const buttonStyle = "button is-rounded is-link is-outlined is-size-4 has-text-weight-bold";
     const [view, setView] = useState(false);
 
@@ -17,9 +17,14 @@ function BooksUp({ category, setText, filters, author, text, copyBooks }) {
                 onChange={handleChange}
             />
             <button className={buttonStyle} onClick={() => filters(category, author)}>Find</button>
-            <button className={buttonStyle} onClick={() => setView(true)} >Create</button>
+            <button className={buttonStyle} onClick={() => setView(true)}>Create</button>
             {view ?
-                <Modal setView={setView} copyBooks={copyBooks} /> : null
+                <Modal idPage={idPage}
+                    setView={setView}
+                    copyBooks={copyBooks}
+                    setCopy={setCopy}
+                    setBooks={setBooks}
+                /> : null
             }
         </>
     );
