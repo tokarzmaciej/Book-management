@@ -13,9 +13,9 @@ function App() {
   const [actualSort, setActualSort] = useState("Sort by");
   const [icon, setIcon] = useState("fa-angle-down");
   const [category, setCategory] = useState({});
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState([]);
   const [author, setAuthor] = useState("");
-  const [text, setText] = useState("");
+
 
 
   useEffect(() => {
@@ -24,12 +24,12 @@ function App() {
         const genres = data.reduce((total, { genre }) => {
           return { ...total, [genre]: false }
         }, {});
-        setBooks(data)
-        setCopy(data)
-        setCategory(genres)
-        setGenres(Object.keys(genres))
+        setBooks(data);
+        setCopy(data);
+        setCategory(genres);
+        setGenres(Object.keys(genres));
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   }, []);
 
 
@@ -55,16 +55,13 @@ function App() {
               setRedirect={setRedirect}
               author={author}
               setAuthor={setAuthor}
-              text={text}
-              setText={setText}
             />}
-
           />
           <Route exact path="/favourites" component={Favourites} />
         </Switch>
       </Router>
     </div>
   );
-}
+};
 
 export default App;

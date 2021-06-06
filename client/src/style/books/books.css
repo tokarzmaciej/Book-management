@@ -50,6 +50,41 @@
   display: flex;
 }
 
+#ListBooks .Books .top .up .modal button {
+  border: 0px solid;
+}
+
+#ListBooks .Books .top .up .modal form {
+  margin: 0% 1% 3% 1%;
+}
+
+#ListBooks .Books .top .up .modal form .primary {
+  margin: 0% 5% 3% 5%;
+}
+
+#ListBooks .Books .top .up .modal form .primary input {
+  margin-bottom: 1%;
+  border: 2px solid #427baa;
+}
+
+#ListBooks .Books .top .up .modal form .details {
+  margin: 0% 5% 2% 5%;
+}
+
+#ListBooks .Books .top .up .modal form .details input {
+  margin-bottom: 1%;
+  border: 2px solid #6e7e8d;
+}
+
+#ListBooks .Books .top .up .modal form .description {
+  margin: 0% 5% 3% 5%;
+  border: 2px solid gray;
+}
+
+#ListBooks .Books .top .up .modal form footer {
+  margin: 0% 5% 3% 5%;
+}
+
 #ListBooks .Books .top .up button {
   margin-right: 2%;
   border: 2px solid;

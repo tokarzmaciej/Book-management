@@ -5,22 +5,22 @@ import React from 'react';
 function DropDown({ values, setBooks, booksFromApi, setActual, setIcon, actual, icon, setAuthor, author, filters, category }) {
 
     const alphabeticSort = (books) => {
-        return books.sort((bookA, bookB) => bookA.title.localeCompare(bookB.title))
+        return books.sort((bookA, bookB) => bookA.title.localeCompare(bookB.title));
     };
 
     const dateSort = (books) => {
-        return books.sort((bookA, bookB) => bookA.release_date.localeCompare(bookB.release_date))
+        return books.sort((bookA, bookB) => bookA.release_date.localeCompare(bookB.release_date));
     };
 
     const sort = (values, el, icon) => {
-        setBooks(values)
-        setActual(el)
-        setIcon(icon)
+        setBooks(values);
+        setActual(el);
+        setIcon(icon);
     };
 
     return (
         <div className="dropdown is-hoverable is-size-2">
-            <div className="dropdown-trigger ">
+            <div className="dropdown-trigger">
                 <button className="button is-size-5 is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
                     <span>{actual || author || values[0]}</span>
                     <span className="icon is-small">
@@ -29,7 +29,7 @@ function DropDown({ values, setBooks, booksFromApi, setActual, setIcon, actual, 
                 </button>
             </div>
             <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                <div className="dropdown-content is-size-4">
+                <div className="dropdown-content is-size-5">
                     {values[0] !== "Sort by" ? values.map((author, index) => {
                         return author !== "Author" ? <Link to="/books/1" className="dropdown-item is-size-4" key={index}
                             onClick={() => {

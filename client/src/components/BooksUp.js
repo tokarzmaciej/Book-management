@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal';
 
-function BooksUp({ category, setText, filters, author, text }) {
+function BooksUp({ category, setText, filters, author, text, copyBooks }) {
     const buttonStyle = "button is-rounded is-link is-outlined is-size-4 has-text-weight-bold";
+    const [view, setView] = useState(false);
+
+    const handleChange = (event) => {
+        setText(event.target.value);
+    };
+
     return (
         <>
             <input className="input is-rounded  is-danger is-outlined is-size-4 "
                 value={text}
                 placeholder="Title ..."
-                onChange={(event) => setText(event.target.value)} />
+                onChange={handleChange}
+            />
             <button className={buttonStyle} onClick={() => filters(category, author)}>Find</button>
-            <button className={buttonStyle}>Create</button>
+            <button className={buttonStyle} onClick={() => setView(true)} >Create</button>
+            {view ?
+                <Modal setView={setView} copyBooks={copyBooks} /> : null
+            }
         </>
     );
-}
+};
 
 export default BooksUp;

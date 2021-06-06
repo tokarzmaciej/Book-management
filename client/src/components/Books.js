@@ -6,11 +6,14 @@ import DropDown from "./DropDown";
 import { Redirect } from 'react-router-dom';
 import Checkbox from "./Checkbox";
 import BooksUp from "./BooksUp";
+import React, { useState } from 'react';
 
 
 function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
     setActualSort, copyBooks, category, setCategory, genres, redirect, setRedirect,
-    setAuthor, author, text, setText }) {
+    setAuthor, author }) {
+
+    const [text, setText] = useState("");
 
     const endPage = parseInt(size / 5) !== size / 5 ||
         size === 0 ? parseInt(size / 5) + 1 : size / 5;
@@ -65,7 +68,8 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                             setText={setText}
                             filters={filters}
                             author={author}
-                            text={text} />
+                            text={text}
+                            copyBooks={copyBooks} />
                     </div>
                     <div className="down">
                         <Checkbox category={category}
@@ -101,6 +105,6 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
             {redirect ? <Redirect to="/books/1" /> : null}
         </div >
     );
-}
+};
 
 export default Books;
