@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 
-function DropDown({ values, setBooks, booksFromApi, setActual, setIcon, actual, icon, setAuthor, author, filters, category }) {
+function DropDown({ values, setBooks, booksFromApi, setActual,
+    setIcon, actual, icon, setAuthor, author, filters, category }) {
 
     const alphabeticSort = (books) => {
         return books.sort((bookA, bookB) => bookA.title.localeCompare(bookB.title));
@@ -91,7 +92,6 @@ function DropDown({ values, setBooks, booksFromApi, setActual, setIcon, actual, 
                                     <i className="fas fa-sort-numeric-up" aria-hidden="true"></i>
                                 </span>
                             </Link>
-
                         </>
                     }
                 </div>

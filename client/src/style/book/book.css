@@ -24,6 +24,26 @@
   margin-top: 10%;
 }
 
+#Book .notification .all .image .stars {
+  margin-top: 8%;
+  margin-right: 37%;
+  direction: rtl;
+}
+
+#Book .notification .all .image .stars span {
+  font-size: auto;
+  color: #bdbdbd;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 4px;
+  pointer-events: none;
+}
+
+#Book .notification .all .image .stars .s {
+  color: gold;
+}
+
 #Book .notification .all .image img:hover {
   cursor: pointer;
   -webkit-transform: scale(1.1);

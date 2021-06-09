@@ -12,6 +12,25 @@
                     grid-column: 1/2;
                     grid-row: 1/2;
                     margin-top: 10%;
+                    .stars {
+                        margin-top: 8%;
+                        margin-right: 37%;
+                        direction: rtl;  
+                        span{
+                            font-size: auto;
+                            color: rgb(189, 189, 189);
+                            text-decoration: none;
+                            transition: all 0.5s;
+                            margin: 4px;
+                            pointer-events: none;
+
+                        }
+                        .s {
+                            color: gold;
+                        }
+                       
+                    }
+                
                     img:hover {
                         cursor: pointer;
                         transform: scale(1.1);

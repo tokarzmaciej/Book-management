@@ -40,7 +40,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={TopFive} />
           <Route exact path="/books/:id" component={
-            (routerProps) => <Books id={parseInt(routerProps.match.params.id)}
+            (routerProps) => <Books
+              id={parseInt(routerProps.match.params.id)}
               size={books.length}
               booksFromApi={books}
               setBooks={setBooks}
@@ -60,8 +61,12 @@ function App() {
             />}
           />
           <Route exact path="/book/:id" component={(routerProps) =>
-            <DetailsBook id={routerProps.match.params.id} actualBooks={books} setBooks={setBooks}
-              copyBooks={copyBooks} setCopy={setCopy} />} />
+            <DetailsBook
+              id={routerProps.match.params.id}
+              actualBooks={books}
+              setBooks={setBooks}
+              copyBooks={copyBooks}
+              setCopy={setCopy} />} />
           <Route exact path="/favourites" component={Favourites} />
         </Switch>
       </Router>

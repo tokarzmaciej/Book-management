@@ -4,23 +4,17 @@ import axios from "axios";
 import "../style/details/details.css";
 import { Redirect } from 'react-router-dom';
 import Modal from './Modal';
+import Stars from './Stars';
+import { formatDate } from '../functions/formatDate';
 
 
 function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
-    const initial = {
-        title: "",
-        author: "",
-        genre: "",
-        release_date: "",
-        description: "",
-        image_url: "",
-    };
-    const [{ title, author, genre, release_date, image_url, description }, setBook] = useState(initial);
+
+    const [{ title, author, genre, release_date, image_url, description, rating }, setBook] = useState({});
 
     const [del, setDel] = useState(false);
     const [redirect, setRedirect] = useState(false);
     const [view, setView] = useState(false);
-
 
     useEffect(() => {
         let isMounted = true;
@@ -63,7 +57,8 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
                         </button>
 
                         <div className="header">
-                            <button className="button is-rounded is-link is-outlined is-size-6 has-text-weight-bold" onClick={() => setView(true)} > Update</button>
+                            <button className="button is-rounded is-link is-outlined is-size-6 has-text-weight-bold"
+                                onClick={() => setView(true)} > Update</button>
                             {view ?
                                 <Modal id={id}
                                     setView={setView}
@@ -77,15 +72,15 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
                         <div className="center">
                             <div className="image">
                                 <img src={image_url} alt="img" />
+                                <Stars id={id} rating={rating} copyBooks={copyBooks} setCopy={setCopy} setBooks={setBooks} />
                             </div>
                             <div className="content">
                                 <p className="title  is-size-6-mobile is-size-4-tablet has-text-danger-dark">Author: </p>
                                 <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{author}</p>
                                 <p className="title  is-size-6-mobile is-size-4-tablet has-text-link-dark" >Release date:</p>
-                                <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{release_date.slice(0, 10)}</p>
+                                <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{formatDate(release_date)}</p>
                                 <p className="title  is-size-6-mobile is-size-4-tablet has-text-link-dark">Genre:</p>
                                 <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{genre} </p>
-
                             </div>
                         </div>
                         <div className="description">
@@ -97,6 +92,6 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
             {redirect ? <Redirect to="/books/1" /> : null}
         </div>
     );
-}
+};
 
 export default DetailsBook;

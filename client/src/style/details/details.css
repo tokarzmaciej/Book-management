@@ -101,6 +101,74 @@
           align-items: center;
 }
 
+#DetailsBook .Book .notification .center .image .stars {
+  margin-top: 6%;
+  margin-right: 0%;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .yes {
+  direction: ltr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .yes .checked {
+  color: gold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .yes .checked:hover {
+  color: gold;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .yes .checked:hover ~ span {
+  color: #bdbdbd;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .no {
+  direction: rtl;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .no span:hover {
+  color: gold;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .no span {
+  font-size: auto;
+  color: #bdbdbd;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 4px;
+}
+
+#DetailsBook .Book .notification .center .image .stars .rating .no .s:hover ~ span {
+  color: gold;
+}
+
 #DetailsBook .Book .notification .center .image img:hover {
   cursor: pointer;
   -webkit-transform: scale(1.1);

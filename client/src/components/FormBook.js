@@ -30,6 +30,7 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     const [post, setSendPost] = useState(false);
     const [put, setSendPut] = useState(false);
     const [redirect, setRedirect] = useState(false);
+
     useEffect(() => {
         if (id !== undefined) {
             axios.get(`http://localhost:5000/api/book/${id}`)

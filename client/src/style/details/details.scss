@@ -63,6 +63,80 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    .stars {
+                        margin-top: 6%;
+                        margin-right: 0%;
+                        // direction: rtl;
+                        // display: flex;
+                        // flex-direction: row;
+                        .rating{
+                            display: flex;
+                            flex-direction: row;
+                            .yes{
+                                direction: ltr;  
+                                display: flex;
+                                flex-direction: row;
+                                .checked{
+                                    color: gold;
+                                    display: flex;
+                                    flex-direction: row-reverse;
+                                }
+                                .checked:hover{
+                                    color: gold;
+                                }
+                                .checked:hover ~ span{
+                                    color: rgb(189, 189, 189);
+                                }
+                            }
+                            .no{
+                                direction: rtl;  
+                                span:hover {
+                                    color: gold;
+                                    transform: scale(1.1);
+                                }
+                                span{
+                                    font-size: auto;
+                                    color: rgb(189, 189, 189);
+                                    text-decoration: none;
+                                    transition: all 0.5s;
+                                    margin: 4px;
+                                }
+                                .s:hover ~ span {
+                                    color: gold;
+
+                                }
+                            }
+                        }
+                        // span:hover {
+                        //     color: gold;
+                        //     transform: scale(1.1);
+                        // }
+                        // span{
+                        //     font-size: auto;
+                        //     color: rgb(189, 189, 189);
+                        //     text-decoration: none;
+                        //     transition: all 0.5s;
+                        //     margin: 4px;
+                        // }
+                        // .s:hover ~ span {
+                        //     color: gold;
+
+                        // }
+                       
+                        // .checked{
+                        //     color: gold;
+                        //     display: flex;
+                        //     flex-direction: row-reverse;
+                        // }
+                        // .checked:hover{
+                        //     color: gold;
+                        // }
+                        //  .checked:hover ~ span{
+                        //       color: rgb(189, 189, 189);
+                        // }
+                       
+                    }
+                   
                     img:hover {
                         cursor: pointer;
                         transform: scale(1.1);
