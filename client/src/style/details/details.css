@@ -23,21 +23,28 @@
   display: grid;
   -ms-grid-rows: (13vh)[9];
       grid-template-rows: repeat(9, 13vh);
+  padding: 0%;
 }
 
 #DetailsBook .Book .notification .header {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-  margin-top: -3%;
+  margin-top: -1%;
 }
 
 #DetailsBook .Book .notification .header button {
   border: 2px solid;
+  padding: 2%;
+  margin-left: 1%;
 }
 
 #DetailsBook .Book .notification .header p {
   margin-top: 2%;
+}
+
+#DetailsBook .Book .notification .header .modal {
+  margin: 0% 3% 0% 3%;
 }
 
 #DetailsBook .Book .notification .header .modal button {
@@ -63,7 +70,7 @@
 
 #DetailsBook .Book .notification .header .modal form .details input {
   margin-bottom: 1%;
-  border: 2px solid #6e7e8d;
+  border: 2px solid #427baa;
 }
 
 #DetailsBook .Book .notification .header .modal form .description {
@@ -102,7 +109,7 @@
 }
 
 #DetailsBook .Book .notification .center .image .stars {
-  margin-top: 6%;
+  margin-top: 5%;
   margin-right: 0%;
 }
 
@@ -201,7 +208,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0% 0% 20% 25%;
+  margin: 0% 0% 45% 25%;
 }
 
 #DetailsBook .Book .notification .center .content p {
@@ -213,21 +220,42 @@
   -ms-grid-row: 5;
   -ms-grid-row-span: 5;
   grid-row: 5/10;
+  margin-top: 10%;
 }
 
-@media all and (max-width: 375px) {
+@media all and (max-width: 414px) {
   #DetailsBook {
-    width: 375px;
-    -ms-grid-columns: ()[1];
-        grid-template-columns: repeat(1);
-    -ms-grid-rows: ()[2];
-        grid-template-rows: repeat(2);
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    width: 414px;
+  }
+  #DetailsBook .Book {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    margin: 5%;
+  }
+  #DetailsBook .Book .header button {
+    margin-left: -13%;
+  }
+  #DetailsBook .Book .modal {
+    margin: 0% 5% 0% 5%;
+  }
+  #DetailsBook .Book .modal form footer button {
+    margin-left: -3%;
+    margin-right: 5%;
+  }
+  #DetailsBook .Book .description {
+    margin-top: 1%;
   }
 }
 
-@media (max-width: 640px) and (min-width: 375px) {
+@media (max-width: 640px) and (min-width: 414px) {
   #DetailsBook {
     width: auto;
+  }
+  #DetailsBook .Book .notification .description {
+    margin-top: 5%;
   }
 }
 

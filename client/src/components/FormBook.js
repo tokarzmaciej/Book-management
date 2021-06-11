@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
+import { buttonStyle4, inputStyle2, titleStyle5, titleStyle6, validationStyle } from '../style/bulma/style';
 
 function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     const initial = {
@@ -137,27 +138,35 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
             {({ handleSubmit, resetForm, initialValues: { title, author, genre, release_date, image_url, description } }) => (
                 <Form onSubmit={handleSubmit}>
                     <div className="primary">
-                        <Field className="input is-rounded" name="title" placeholder="Title" value={title}
+                        <p className={titleStyle5}>Primary information</p>
+                        <p className={titleStyle6}>Title</p>
+                        <Field className={inputStyle2} name="title" placeholder="Title" value={title}
                             onChange={(event) => handleChange("title", event)} />
-                        <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="title" /></h5>
+                        <h5 className={validationStyle} ><ErrorMessage name="title" /></h5>
 
-                        <Field className="input is-rounded" name="author" placeholder="Author" value={author}
+                        <p className={titleStyle6}>Author</p>
+                        <Field className={inputStyle2} name="author" placeholder="Author" value={author}
                             onChange={(event) => handleChange("author", event)} />
-                        <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="author" /></h5>
+                        <h5 className={validationStyle} ><ErrorMessage name="author" /></h5>
 
-                        <Field className="input is-rounded" name="genre" placeholder="Genre" value={genre}
+                        <p className={titleStyle6}>Genre</p>
+                        <Field className={inputStyle2} name="genre" placeholder="Genre" value={genre}
                             onChange={(event) => handleChange("genre", event)} />
-                        <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="genre" /></h5>
+                        <h5 className={validationStyle} ><ErrorMessage name="genre" /></h5>
                     </div>
 
                     <div className="details">
-                        <Field className="input is-rounded" type="date" name="release_date" value={release_date.slice(0, 10)}
+                        <p className={titleStyle5}>Details</p>
+                        <p className={titleStyle6}>Relase date</p>
+                        <Field className={inputStyle2} type="date" name="release_date" value={release_date.slice(0, 10)}
                             onChange={(event) => handleChange("release_date", event)} />
-                        <h5 className="valueText is-size-7 has-text-danger" ><ErrorMessage name="release_date" /></h5>
+                        <h5 className={validationStyle} ><ErrorMessage name="release_date" /></h5>
 
-                        <Field className="input is-rounded" name="image_url" placeholder="Image url" value={image_url}
+                        <p className={titleStyle6}>Image URL</p>
+                        <Field className={inputStyle2} name="image_url" placeholder="Image url" value={image_url}
                             onChange={(event) => handleChange("image_url", event)} />
-                        <h5 className="valueText is-size-7  has-text-danger" ><ErrorMessage name="image_url" /></h5>
+                        <h5 className={validationStyle} ><ErrorMessage name="image_url" /></h5>
+                        <p className={titleStyle6}>Description</p>
                     </div>
 
                     <div className="description">
@@ -166,7 +175,7 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
                     </div>
 
                     <footer className="modal-card-foot">
-                        <button type="button" className="button has-background-danger-dark has-text-white-ter"
+                        <button type="button" className={buttonStyle4}
                             onClick={() => reset(resetForm)}
                         >
                             Reset

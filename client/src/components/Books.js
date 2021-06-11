@@ -64,7 +64,8 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
             <div className="Books">
                 <div className="top">
                     <div className="up">
-                        <BooksUp category={category}
+                        <BooksUp
+                            category={category}
                             setText={setText}
                             filters={filters}
                             author={author}
@@ -81,7 +82,8 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                             handleChange={handleChange} />
 
                         <div className="sort-filters">
-                            <DropDown values={authors}
+                            <DropDown
+                                values={authors}
                                 setBooks={setBooks}
                                 booksFromApi={booksFromApi}
                                 author={author}
@@ -89,13 +91,15 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                                 filters={filters}
                                 category={category}
                             />
-                            <DropDown values={sortValues}
+                            <DropDown
+                                values={sortValues}
                                 setBooks={setBooks}
                                 booksFromApi={booksFromApi}
                                 icon={icon}
                                 setIcon={setIcon}
                                 actual={actualSort}
-                                setActual={setActualSort} />
+                                setActual={setActualSort}
+                            />
                         </div>
                     </div>
                 </div>
@@ -103,7 +107,11 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                     <ListBooks books={books} />
                 </div>
                 <div className="footer">
-                    <Pagination id={id} endPage={endPage} arrayToPagination={arrayToPagination} />
+                    <Pagination
+                        id={id}
+                        endPage={endPage}
+                        arrayToPagination={arrayToPagination}
+                    />
                 </div>
             </div>
             {redirect ? <Redirect to="/books/1" /> : null}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../style/menu/menu.css";
-
+import '../style/menu/menu.css';
+import { titleStyle7 } from '../style/bulma/style';
 
 function Menu() {
     return (
@@ -12,13 +12,13 @@ function Menu() {
                 </span>
             </div>
             <div>
-                <Link to={`/`} className="title has-text-white-bis">Top 5</Link>
+                <Link to={`/`} className={titleStyle7}>Top 5</Link>
             </div>
             <div>
-                <Link to={`/books/1`} className="title has-text-white-bis">Books</Link>
+                <Link to={`/books/1`} className={titleStyle7}>Books</Link>
             </div>
             <div>
-                <Link to={`/favourites`} className="title has-text-white-bis">Favourites</Link>
+                <Link to={`/favourites`} className={titleStyle7}>Favourites</Link>
             </div>
         </div>
     );

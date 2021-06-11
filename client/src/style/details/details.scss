@@ -12,16 +12,20 @@
         .notification{
             display: grid;
             grid-template-rows: repeat(9,13vh);
+            padding: 0%;
             .header{
                 grid-row: 1/2;
-                margin-top: -3%;
+                margin-top: -1%;
                 button{
                     border: 2px solid;
+                    padding: 2%;
+                    margin-left: 1%;
                 }
                 p{
                     margin-top: 2%;
                 }
                 .modal{
+                    margin: 0% 3% 0% 3%;
                     button{
                         border: 0px solid;
                     }
@@ -38,7 +42,7 @@
                             margin: 0% 5% 2% 5%;
                             input{
                                 margin-bottom: 1%;
-                                border: 2px solid rgb(110, 126, 141);
+                                border: 2px solid rgb(66, 123, 170);
                             }
                         }
                         .description{
@@ -64,11 +68,8 @@
                     flex-direction: column;
                     align-items: center;
                     .stars {
-                        margin-top: 6%;
+                        margin-top: 5%;
                         margin-right: 0%;
-                        // direction: rtl;
-                        // display: flex;
-                        // flex-direction: row;
                         .rating{
                             display: flex;
                             flex-direction: row;
@@ -107,34 +108,6 @@
                                 }
                             }
                         }
-                        // span:hover {
-                        //     color: gold;
-                        //     transform: scale(1.1);
-                        // }
-                        // span{
-                        //     font-size: auto;
-                        //     color: rgb(189, 189, 189);
-                        //     text-decoration: none;
-                        //     transition: all 0.5s;
-                        //     margin: 4px;
-                        // }
-                        // .s:hover ~ span {
-                        //     color: gold;
-
-                        // }
-                       
-                        // .checked{
-                        //     color: gold;
-                        //     display: flex;
-                        //     flex-direction: row-reverse;
-                        // }
-                        // .checked:hover{
-                        //     color: gold;
-                        // }
-                        //  .checked:hover ~ span{
-                        //       color: rgb(189, 189, 189);
-                        // }
-                       
                     }
                    
                     img:hover {
@@ -156,7 +129,7 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    margin: 0% 0% 20% 25% ;
+                    margin: 0% 0% 45% 25% ;
                     p{
                         margin-top: 1%;
                         margin-bottom: 2%;
@@ -165,24 +138,54 @@
             }
             .description{
                 grid-row: 5/10;
+                margin-top: 10%;
             }
         }
     }
 }
 
-@media all and (max-width: 375px){
+@media all and (max-width: 414px){
         #DetailsBook{
-        width: 375px;
-        grid-template-columns: repeat(1);
-        grid-template-rows: repeat(2);
-       
-       
+            grid-template-columns: repeat(1,1fr);
+            width: 414px;
+            .Book{
+                grid-column: 1/2;
+                margin: 5%;
+                .header{
+                    button{
+                        margin-left: -13% ;
+                    }
+                }
+                .modal{
+                    margin: 0% 5% 0% 5%;
+                    form{
+                        footer{
+                            button{
+                                margin-left: -3%;
+                                margin-right: 5%;
+                            }
+                        }
+                    }
+                }
+                .description{
+                    margin-top: 1%;
+                }
+            }
     }
 }
 
-@media (max-width: 640px) and (min-width: 375px){
+@media (max-width: 640px) and (min-width: 414px){
         #DetailsBook{
         width: auto;
+        .Book{
+            .notification{
+                .description{
+                margin-top: 5%;
+                }
+            }
+            
+        }
+        
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
-
+import { responsive4 } from '../style/bulma/style';
 
 function Checkbox({ category, genres, handleChange }) {
 
@@ -17,7 +17,7 @@ function Checkbox({ category, genres, handleChange }) {
                     {genres.map((genre, index) => {
                         return <div className="check" key={index}>
                             <Field type="checkbox" name={genre} />
-                            <label className="is-size-5-tablet-mobile is-size-4-tablet">
+                            <label className={responsive4}>
                                 {genre}
                             </label>
                         </div>

@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Modal from './Modal';
 import Stars from './Stars';
 import { formatDate } from '../functions/formatDate';
-
+import { buttonStyle2, responsive8, titleStyle1, titleStyle2, titleStyle3, titleStyle4 } from '../style/bulma/style'
 
 function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
 
@@ -46,7 +46,6 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
             setDel(true);
         };
     };
-
     return (
         <div id="DetailsBook">
             <Menu></Menu>
@@ -57,34 +56,41 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
                         </button>
 
                         <div className="header">
-                            <button className="button is-rounded is-link is-outlined is-size-6 has-text-weight-bold"
+                            <button className={buttonStyle2}
                                 onClick={() => setView(true)} > Update</button>
                             {view ?
-                                <Modal id={id}
+                                <Modal
+                                    id={id}
                                     setView={setView}
                                     copyBooks={copyBooks}
                                     setCopy={setCopy}
                                     setBooks={setBooks}
                                 /> : null
                             }
-                            <p className="title  is-size-6-mobile is-size-3-tablet has-text-grey-dark has-text-weight-bold">{title}</p>
+                            <p className={titleStyle1}>{title}</p>
                         </div>
                         <div className="center">
                             <div className="image">
                                 <img src={image_url} alt="img" />
-                                <Stars id={id} rating={rating} copyBooks={copyBooks} setCopy={setCopy} setBooks={setBooks} />
+                                <Stars
+                                    id={id}
+                                    rating={rating}
+                                    copyBooks={copyBooks}
+                                    setCopy={setCopy}
+                                    setBooks={setBooks}
+                                />
                             </div>
                             <div className="content">
-                                <p className="title  is-size-6-mobile is-size-4-tablet has-text-danger-dark">Author: </p>
-                                <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{author}</p>
-                                <p className="title  is-size-6-mobile is-size-4-tablet has-text-link-dark" >Release date:</p>
-                                <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{formatDate(release_date)}</p>
-                                <p className="title  is-size-6-mobile is-size-4-tablet has-text-link-dark">Genre:</p>
-                                <p className="is-size-6-mobile is-size-4-tablet has-text-grey-dark">{genre} </p>
+                                <p className={titleStyle2}>Author: </p>
+                                <p className={titleStyle3}>{author}</p>
+                                <p className={titleStyle4} >Release date:</p>
+                                <p className={titleStyle3}>{release_date !== undefined && formatDate(release_date)}</p>
+                                <p className={titleStyle4}>Genre:</p>
+                                <p className={titleStyle3}>{genre} </p>
                             </div>
                         </div>
                         <div className="description">
-                            <p className="is-size-6-mobile is-size-4-tablet">{description}</p>
+                            <p className={responsive8}>{description}</p>
                         </div>
                     </div>
                 </div>

@@ -18,12 +18,13 @@
 }
 
 .Menu span {
-  font-size: 110px;
+  font-size: 450%;
+  margin-left: 2%;
 }
 
 .Menu div {
   text-align: center;
-  margin-top: 20%;
+  margin-top: 18%;
 }
 
 .Menu div:hover {
@@ -37,20 +38,17 @@
   padding: 0px;
 }
 
-@media all and (max-width: 375px) {
+@media all and (max-width: 414px) {
   .Menu {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    grid-row: 1/2;
     -ms-grid-column: 1;
-    grid-column: 1;
-    min-width: 375px;
-    width: auto;
-    min-height: 450px;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    width: 414px;
+    min-height: 500px;
   }
 }
 
-@media (max-width: 640px) and (min-width: 375px) {
+@media (max-width: 640px) and (min-width: 414px) {
   .Menu {
     width: auto;
   }

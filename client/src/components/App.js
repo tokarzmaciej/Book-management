@@ -35,7 +35,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <>
       <Router>
         <Switch>
           <Route exact path="/" component={TopFive} />
@@ -70,7 +70,7 @@ function App() {
           <Route exact path="/favourites" component={Favourites} />
         </Switch>
       </Router>
-    </div>
+    </>
   );
 };
 

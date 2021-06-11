@@ -7,11 +7,12 @@
         background-color: hsl(217, 71%, 53%);
         box-shadow: 3px 3px 3px 1px;
         span{
-               font-size: 110px;
+            font-size: 450%;
+            margin-left: 2%;
         }
         div{
             text-align: center;
-            margin-top: 20%;
+            margin-top: 18%;
         }
         div:hover {
                 cursor: none;
@@ -23,18 +24,16 @@
             }
 }
 
-@media all and (max-width: 375px){
+@media all and (max-width: 414px){
         .Menu{
-            grid-row: 1/2;
-            grid-column: 1;
-            min-width: 375px;
-            width: auto;
-            min-height: 450px;
+            grid-column: 1/2;
+            width: 414px;
+            min-height: 500px;
         }
        
 }
 
-@media (max-width: 640px) and (min-width: 375px){       
+@media (max-width: 640px) and (min-width: 414px){       
         .Menu{
             width: auto;
             div{

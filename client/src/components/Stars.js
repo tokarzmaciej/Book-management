@@ -25,10 +25,8 @@ function Stars({ id, rating, copyBooks, setBooks, setCopy }) {
             setPost(true);
         };
     };
-    console.log(rating);
     return (
         <div className="stars">
-
             {id !== undefined ?
                 <div className="rating">
                     <div className="yes">

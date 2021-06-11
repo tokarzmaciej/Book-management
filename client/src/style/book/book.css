@@ -5,6 +5,10 @@
 
 #Book .notification a {
   text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 5%;
 }
 
 #Book .notification .all {
@@ -22,11 +26,30 @@
   -ms-grid-row-span: 1;
   grid-row: 1/2;
   margin-top: 10%;
+  margin-right: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #Book .notification .all .image .stars {
   margin-top: 8%;
-  margin-right: 37%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   direction: rtl;
 }
 
@@ -79,12 +102,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 15%;
+  margin-left: 5%;
 }
 
-@media all and (max-width: 375px) {
+@media all and (max-width: 414px) {
   #Book {
-    width: 375px;
+    width: 414px;
   }
   #Book .notification {
     padding: 1%;
@@ -92,23 +115,44 @@
   #Book .notification .content {
     margin-left: 20%;
   }
+  #Book .notification .all .image {
+    margin: 0%;
+  }
+  #Book .notification .all .image img {
+    max-width: 200px;
+    max-height: 240px;
+    -webkit-box-shadow: 3px 3px 3px 3px;
+            box-shadow: 3px 3px 3px 3px;
+  }
 }
 
-@media (max-width: 640px) and (min-width: 375px) {
+@media (max-width: 640px) and (min-width: 414px) {
   #Book {
     width: auto;
   }
   #Book .notification {
-    padding: 1%;
+    padding: 0%;
   }
-  #Book .notification .content {
-    margin-left: 20%;
+  #Book .notification .all .content p {
+    margin: 7%;
+  }
+  #Book .notification .all .content u {
+    margin: 2%;
   }
 }
 
 @media (max-width: 1280px) and (min-width: 640px) {
   #Book {
     width: auto;
+  }
+  #Book .notification {
+    padding: 0%;
+  }
+  #Book .notification .all .content p {
+    margin: 7%;
+  }
+  #Book .notification .all .content u {
+    margin: 2%;
   }
 }
 /*# sourceMappingURL=book.css.map */

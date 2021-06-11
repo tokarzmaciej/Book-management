@@ -9,7 +9,9 @@ function Modal({ id, idPage, setView, copyBooks, setCopy, setBooks }) {
             <div className="modal-card">
                 <header className="modal-card-head">
                     <p className="modal-card-title">Book creator</p>
-                    <button className="delete" aria-label="close" onClick={() => setView(false)}></button>
+                    <button className="delete" aria-label="close"
+                        onClick={() => setView(false)}>
+                    </button>
                 </header>
                 <section className="modal-card-body">
                     <FormBook

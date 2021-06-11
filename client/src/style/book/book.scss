@@ -4,81 +4,106 @@
     .notification{
         a{
             text-decoration: none;
+            display: flex;
+            margin-right: 5%;
         }
+   
         .all{
             display: grid;
             grid-template-columns: repeat(2,1fr);
             .image{
-                    grid-column: 1/2;
-                    grid-row: 1/2;
-                    margin-top: 10%;
-                    .stars {
-                        margin-top: 8%;
-                        margin-right: 37%;
-                        direction: rtl;  
-                        span{
-                            font-size: auto;
-                            color: rgb(189, 189, 189);
-                            text-decoration: none;
-                            transition: all 0.5s;
-                            margin: 4px;
-                            pointer-events: none;
+                grid-column: 1/2;
+                grid-row: 1/2;
+                margin-top: 10%;
+                margin-right: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .stars {
+                    margin-top: 8%;
+                    display: flex;
+                    justify-content: center;
+                    direction: rtl;  
+                    span{
+                        font-size: auto;
+                        color: rgb(189, 189, 189);
+                        text-decoration: none;
+                        transition: all 0.5s;
+                        margin: 4px;
+                        pointer-events: none;
 
-                        }
-                        .s {
-                            color: gold;
-                        }
-                       
                     }
+                    .s {
+                        color: gold;
+                    }
+                    
+                }
                 
-                    img:hover {
-                        cursor: pointer;
-                        transform: scale(1.1);
-                        box-shadow: 3px 3px 3px 3px;
-                        position: relative;
-                        border-radius: 5px;
-                        padding: 5px;
-                    }
-                    img{
-                        // min-height: 128px;
-                        // min-width: 128px;
-                        max-width:200px;
-                        max-height:300px;
-                        box-shadow: 3px 3px 3px 3px;
-                    }
-                }      
+                img:hover {
+                    cursor: pointer;
+                    transform: scale(1.1);
+                    box-shadow: 3px 3px 3px 3px;
+                    position: relative;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+                img{
+                    max-width:200px;
+                    max-height:300px;
+                    box-shadow: 3px 3px 3px 3px;
+                }
+            }      
             .content{
                     grid-column: 2/3;
                     grid-row: 1/2;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    margin-left: 15%;
+                    margin-left: 5%;
                 }
         }
     }   
 }
 
 
-@media all and (max-width: 375px){
+@media all and (max-width: 414px){
         #Book{
-        width: 375px;
-        .notification{
-            padding: 1%;
-            .content{
-            margin-left: 20%;
+            width: 414px;
+            .notification{
+                padding: 1%;
+                .content{
+                margin-left: 20%;
+                }
+                .all{
+                    .image{
+                        margin: 0%;
+                        img{
+                            max-width:200px;
+                            max-height:240px;
+                            box-shadow: 3px 3px 3px 3px;
+                        }
+                    }
+                }
             }
+            
         }
-    }
 }
 
-@media (max-width: 640px) and (min-width: 375px){
+@media (max-width: 640px) and (min-width: 414px){
        #Book{
         width: auto;
         .notification{
-            padding: 1%;
-            .content{
-            margin-left: 20%;
+            padding: 0%;
+            .all{
+                .content{
+                    p{
+                        margin: 7%;
+                    }
+                    u{
+                        margin: 2%;
+                    }
+                }
             }
         }
        
@@ -87,6 +112,20 @@
 
 @media (max-width: 1280px) and (min-width: 640px){
         #Book{
-        width: auto;
+            width: auto;
+            .notification{
+                padding: 0%;
+                .all{
+                     .content{
+                        p{
+                            margin: 7%;
+                        }
+                        u{
+                            margin: 2%;
+                        }
+                    }
+                 
+            }
+        }
     }
 }
