@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
 import { buttonStyle4, inputStyle2, titleStyle5, titleStyle6, validationStyle } from '../style/bulma/style';
+import { formatDateToBackend, formatDateOnFrontend1, formatDateOnFrontend2 } from '../functions/formatDate';
 
 function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     const initial = {
@@ -21,6 +22,7 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     const formatter = (object) => {
         const toUpperFirstLetter = (value) => value.length > 1 ?
             value[0].toUpperCase() + value.slice(1) : value[0].toUpperCase();
+        object.release_date = formatDateToBackend(object.release_date);
         object.title = toUpperFirstLetter(object.title);
         object.author = toUpperFirstLetter(object.author);
         object.genre = toUpperFirstLetter(object.genre);
@@ -36,7 +38,9 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
         if (id !== undefined) {
             axios.get(`http://localhost:5000/api/book/${id}`)
                 .then((res) => {
-                    setNewBook(res.data);
+                    const data = res.data;
+                    data.release_date = formatDateOnFrontend1(data.release_date)
+                    setNewBook(data);
                 })
                 .catch((err) => console.log(err));
         };
@@ -46,11 +50,19 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
         if (put && id !== undefined) {
             axios.put(`http://localhost:5000/api/book/${id}`, formatter(newBook))
                 .then((res) => {
-                    setSendPut(false)
-                    setView(false);
-                    const update = copyBooks.map(book => book.id === parseInt(id) ? { ...book, ...res.data } : book);
-                    setCopy(update);
-                    setBooks(update);
+                    if (res.status.toString().startsWith("2")) {
+                        setSendPut(false)
+                        setView(false);
+                        const data = res.data;
+                        data.release_date = formatDateOnFrontend2(data.release_date);
+                        const update = copyBooks.map(book => book.id === parseInt(id) ? { ...book, ...data } : book);
+                        setCopy(update);
+                        setBooks(update);
+                        alert("Success !");
+                    }
+                    else {
+                        alert(res.data)
+                    }
                 })
                 .catch((err) => console.log(err));
         };
@@ -60,22 +72,22 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
         if (post) {
             axios.post("http://localhost:5000/api/book", formatter(newBook))
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status.toString().startsWith("2")) {
                         setRedirect(true);
                         setSendPost(false);
                         setView(false);
                         setCopy([res.data, ...copyBooks]);
                         setBooks([res.data, ...copyBooks]);
+                        alert("Success !");
                     } else {
                         alert(res.data)
                     }
-
                 })
                 .catch((err) => console.log(err));
         };
     }, [newBook, post, setCopy, copyBooks, setView, setBooks]);
 
-    const validate = ({ title, author, genre, image_url, release_date }) => {
+    const validate = ({ title, author, genre, image_url, release_date, description }) => {
         const errors = {};
         if (title === "") {
             errors.title = 'Required*';
@@ -83,8 +95,14 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
         if (titles.includes(title.toUpperCase()) && put) {
             errors.title = 'This title already exists';
         };
+        if (/[<>,?!*]+/i.test(title)) {
+            errors.title = 'Bad char (<>,.?!*)';
+        };
         if (author === "") {
             errors.author = 'Required*';
+        };
+        if (/[<>,?!*]+/i.test(author)) {
+            errors.author = 'Bad char (<>,.?!*)';
         };
         if (genre === "") {
             errors.genre = 'Required*';
@@ -92,12 +110,22 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
         if (genre.length > 50) {
             errors.genre = 'Bad length';
         };
+        if (/[<>,.?!*]+/i.test(genre)) {
+            errors.genre = 'Bad char (<>,.?!*)';
+        };
         if (release_date === "") {
             errors.release_date = 'Required*';
+        };
+        if (description === "") {
+            errors.description = 'Required*';
+        };
+        if (/[<>]+/i.test(description)) {
+            errors.description = 'Bad char (<>,.?!*)';
         };
         if (image_url === "" || !/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/i.test(image_url)) {
             errors.image_url = 'Invalid image url';
         };
+
         return errors
     };
 
@@ -158,7 +186,8 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
                     <div className="details">
                         <p className={titleStyle5}>Details</p>
                         <p className={titleStyle6}>Relase date</p>
-                        <Field className={inputStyle2} type="date" name="release_date" value={release_date.slice(0, 10)}
+                        <Field className={inputStyle2} type="date" name="release_date"
+                            value={release_date !== undefined && release_date.slice(0, 10)}
                             onChange={(event) => handleChange("release_date", event)} />
                         <h5 className={validationStyle} ><ErrorMessage name="release_date" /></h5>
 
@@ -172,6 +201,7 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
                     <div className="description">
                         <textarea className="textarea" type="textarea" name="description" placeholder="Description" value={description}
                             onChange={(event) => handleChange("description", event)} />
+                        <h5 className={validationStyle} ><ErrorMessage name="description" /></h5>
                     </div>
 
                     <footer className="modal-card-foot">

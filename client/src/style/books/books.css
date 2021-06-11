@@ -236,14 +236,14 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin: 0%;
   }
   #ListBooks .Books .top .down .sort-filters .dropdown {
-    margin-right: 7%;
-    margin-left: -3%;
+    margin-left: -10%;
+    margin-right: 12%;
   }
   #ListBooks .Books .center {
     margin: 5% 5% 0% 0%;
@@ -251,7 +251,7 @@
   }
   #ListBooks .Books .footer {
     max-height: 80px;
-    margin: 15% 5% 0% 5%;
+    margin: 15% 10% 0% 5%;
   }
 }
 

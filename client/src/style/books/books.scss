@@ -152,11 +152,11 @@
                             width: 414px;
                             grid-column: 1/2;
                             flex-direction: row;
-                            justify-content: flex-end;   
+                            justify-content: flex-start;   
                             margin: 0%;
                             .dropdown{
-                                margin-right: 7%;
-                                margin-left: -3%;
+                                margin-left: -10%;
+                                margin-right: 12%;
                             }
                         }
                     }
@@ -168,7 +168,7 @@
                 }
                 .footer{
                     max-height: 80px;
-                    margin: 15% 5% 0% 5%;
+                    margin: 15% 10% 0% 5%;
                     
                 }
             }

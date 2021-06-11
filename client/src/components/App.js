@@ -16,8 +16,7 @@ function App() {
   const [category, setCategory] = useState({});
   const [genres, setGenres] = useState([]);
   const [author, setAuthor] = useState("");
-
-
+  const [favourite, setFavourite] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/book")
@@ -32,7 +31,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
-
 
   return (
     <>
@@ -58,6 +56,8 @@ function App() {
               setRedirect={setRedirect}
               author={author}
               setAuthor={setAuthor}
+              favourite={favourite}
+              setFavourite={setFavourite}
             />}
           />
           <Route exact path="/book/:id" component={(routerProps) =>
@@ -66,8 +66,18 @@ function App() {
               actualBooks={books}
               setBooks={setBooks}
               copyBooks={copyBooks}
-              setCopy={setCopy} />} />
-          <Route exact path="/favourites" component={Favourites} />
+              setCopy={setCopy} />}
+          />
+
+          <Route exact path="/favourites/:id" component={
+            (routerProps) =>
+              <Favourites
+                id={parseInt(routerProps.match.params.id)}
+                favourite={favourite}
+                copyBooks={copyBooks}
+                setFavourite={setFavourite} />
+          }
+          />
         </Switch>
       </Router>
     </>

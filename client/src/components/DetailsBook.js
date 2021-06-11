@@ -5,7 +5,7 @@ import "../style/details/details.css";
 import { Redirect } from 'react-router-dom';
 import Modal from './Modal';
 import Stars from './Stars';
-import { formatDate } from '../functions/formatDate';
+import { formatDateOnFrontend1 } from '../functions/formatDate';
 import { buttonStyle2, responsive8, titleStyle1, titleStyle2, titleStyle3, titleStyle4 } from '../style/bulma/style'
 
 function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
@@ -84,7 +84,7 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
                                 <p className={titleStyle2}>Author: </p>
                                 <p className={titleStyle3}>{author}</p>
                                 <p className={titleStyle4} >Release date:</p>
-                                <p className={titleStyle3}>{release_date !== undefined && formatDate(release_date)}</p>
+                                <p className={titleStyle3}>{release_date !== undefined && formatDateOnFrontend1(release_date)}</p>
                                 <p className={titleStyle4}>Genre:</p>
                                 <p className={titleStyle3}>{genre} </p>
                             </div>

@@ -1,6 +1,6 @@
 import Book from "./Book"
 
-function ListBooks({ books }) {
+function ListBooks({ books, favourite, setFavourite }) {
     return (
         <>
             {books.map(({ id, title, author, image_url, release_date, rating }) =>
@@ -11,7 +11,10 @@ function ListBooks({ books }) {
                     title={title}
                     author={author}
                     release_date={release_date}
-                    rating={rating} />
+                    rating={rating}
+                    favourite={favourite}
+                    setFavourite={setFavourite}
+                />
             )}
         </>
     );

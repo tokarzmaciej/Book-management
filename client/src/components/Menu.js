@@ -18,7 +18,7 @@ function Menu() {
                 <Link to={`/books/1`} className={titleStyle7}>Books</Link>
             </div>
             <div>
-                <Link to={`/favourites`} className={titleStyle7}>Favourites</Link>
+                <Link to={`/favourites/1`} className={titleStyle7}>Favourites</Link>
             </div>
         </div>
     );

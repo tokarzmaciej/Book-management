@@ -11,6 +11,12 @@
   margin-right: 5%;
 }
 
+#Book .notification button {
+  border: none;
+  font-size: 200%;
+  margin-left: 90%;
+}
+
 #Book .notification .all {
   display: -ms-grid;
   display: grid;

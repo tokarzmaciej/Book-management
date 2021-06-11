@@ -1,17 +1,17 @@
 import Menu from "./Menu";
-import "../style/books/books.css";
 import Pagination from "./Pagination";
 import ListBooks from "./ListBooks";
 import DropDown from "./DropDown";
 import { Redirect } from 'react-router-dom';
 import Checkbox from "./Checkbox";
 import BooksUp from "./BooksUp";
+import "../style/books/books.css";
 import React, { useState } from 'react';
 
 
 function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
     setActualSort, copyBooks, category, setCategory, genres, redirect, setRedirect,
-    setAuthor, author, setCopy }) {
+    setAuthor, author, setCopy, favourite, setFavourite }) {
 
     const [text, setText] = useState("");
 
@@ -104,7 +104,7 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                     </div>
                 </div>
                 <div className="center">
-                    <ListBooks books={books} />
+                    <ListBooks books={books} favourite={favourite} setFavourite={setFavourite} />
                 </div>
                 <div className="footer">
                     <Pagination

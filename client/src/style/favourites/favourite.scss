@@ -1,0 +1,91 @@
+#FavouriteBook{
+    margin-bottom: 3%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 15%;
+    .notification{
+        padding: 1%;
+        a{
+            text-decoration: none;
+            display: flex;
+            margin-right: 5%;
+            margin-top: -3%;
+            margin-bottom: 8%;
+        }
+        button{
+            border: none;
+            font-size: 200%;
+            margin-left: 90%;
+        }
+        .all{
+            .image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                img:hover {
+                    cursor: pointer;
+                    transform: scale(1.3);
+                    box-shadow: 3px 3px 3px 3px;
+                    position: relative;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+                img{
+                    max-width:200px;
+                    max-height:300px;
+                    box-shadow: 3px 3px 3px 3px;
+                }
+            }      
+        }
+    }   
+}
+
+
+@media all and (max-width: 414px){
+    #FavouriteBook{
+        width: 414px;
+            .notification{
+                .all{
+                    .image{
+                        img:hover {
+                            transform: scale(1.1);
+                        
+                        }
+                    }  
+                }
+        }
+    }
+}
+
+@media (max-width: 640px) and (min-width: 414px){
+       #FavouriteBook{
+        width: auto;
+          .notification{
+                .all{
+                    .image{
+                        img:hover {
+                            transform: scale(1.1);
+                        
+                        }
+                    }  
+                }
+        }
+       
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 640px){
+        #FavouriteBook{
+            width: auto;
+            .notification{
+                .all{
+                    .image{
+                        img:hover {
+                            transform: scale(1.1);
+                        }
+                    }  
+                }
+        }
+    }
+}

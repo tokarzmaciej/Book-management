@@ -7,7 +7,11 @@
             display: flex;
             margin-right: 5%;
         }
-   
+        button{
+            border: none;
+            font-size: 200%;
+            margin-left: 90%;
+        }
         .all{
             display: grid;
             grid-template-columns: repeat(2,1fr);
