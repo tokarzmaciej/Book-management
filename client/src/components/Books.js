@@ -111,6 +111,7 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                         id={id}
                         endPage={endPage}
                         arrayToPagination={arrayToPagination}
+                        link="books"
                     />
                 </div>
             </div>

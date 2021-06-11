@@ -15,12 +15,13 @@ function Favourites({ id, favourite, copyBooks, setFavourite }) {
         [endPage - 3, endPage - 2, endPage - 1] :
         [2, 3, 4] : endPage === 4 ? [2, 3] : [2];
 
+    const books = favouritesBook.slice((id - 1) * 5, id * 5);
     return (
         <div id="Favourite">
             <Menu />
             <div className="favourites">
                 <div className="content">
-                    {favouritesBook.map(({ id, title, image_url }) =>
+                    {books.map(({ id, title, image_url }) =>
                         <FavouriteBook
                             key={id}
                             id={id}
@@ -35,6 +36,7 @@ function Favourites({ id, favourite, copyBooks, setFavourite }) {
                         id={id}
                         endPage={endPage}
                         arrayToPagination={arrayToPagination}
+                        link="favourites"
                     />
                 </div>
             </div>

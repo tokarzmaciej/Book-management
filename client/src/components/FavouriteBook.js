@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { responsive5, fontStyle1 } from '../style/bulma/style';
-import '../style/favourites/favourite.css'
+import '../style/favourites/favourite.css';
 
 
 function FavouriteBook({ id, image_url, title, favourite, setFavourite }) {

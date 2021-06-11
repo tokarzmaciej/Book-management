@@ -19,6 +19,7 @@
   display: grid;
   -ms-grid-rows: (1fr)[15];
       grid-template-rows: repeat(15, 1fr);
+  margin-top: 7%;
 }
 
 #Favourite .favourites .content {
