@@ -10,8 +10,8 @@ import React, { useState } from "react";
 
 
 function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
-    setActualSort, copyBooks, category, setCategory, genres, redirect, setRedirect,
-    setAuthor, author, setCopy, favourite, setFavourite }) {
+    setActualSort, copyBooks, category, setCategory, genres, setGenres, redirect,
+    setRedirect, setAuthor, author, setCopy, favourite, setFavourite }) {
 
     const [text, setText] = useState("");
 
@@ -65,7 +65,6 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                 <div className="top">
                     <div className="up">
                         <BooksUp
-                            category={category}
                             setText={setText}
                             filters={filters}
                             author={author}
@@ -74,6 +73,10 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                             setCopy={setCopy}
                             idPage={id}
                             setBooks={setBooks}
+                            category={category}
+                            setCategory={setCategory}
+                            setGenres={setGenres}
+                            genres={genres}
                         />
                     </div>
                     <div className="down">
@@ -104,7 +107,11 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
                     </div>
                 </div>
                 <div className="center">
-                    <ListBooks books={books} favourite={favourite} setFavourite={setFavourite} />
+                    <ListBooks
+                        books={books}
+                        favourite={favourite}
+                        setFavourite={setFavourite}
+                    />
                 </div>
                 <div className="footer">
                     <Pagination

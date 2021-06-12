@@ -1,7 +1,8 @@
 import React from 'react';
 import FormBook from '../Books/Form/FormBook';
 
-function Modal({ id, idPage, setView, copyBooks, setCopy, setBooks }) {
+function Modal({ id, idPage, setView, copyBooks, setCopy,
+    setBooks, category, setCategory, genres, setGenres }) {
 
     return (
         <div className="modal is-active">
@@ -21,6 +22,10 @@ function Modal({ id, idPage, setView, copyBooks, setCopy, setBooks }) {
                         setView={setView}
                         setCopy={setCopy}
                         setBooks={setBooks}
+                        category={category}
+                        setCategory={setCategory}
+                        setGenres={setGenres}
+                        genres={genres}
                     />
                 </section>
             </div>

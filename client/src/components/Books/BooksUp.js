@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Modal from '../Helpers/Modal';
 import { buttonStyle1, inputStyle1 } from '../../style/bulma/style';
 
-function BooksUp({ idPage, category, setText, filters,
-    author, text, copyBooks, setCopy, setBooks }) {
+function BooksUp({ idPage, category, setText, filters, author, text,
+    copyBooks, setCopy, setBooks, setCategory, setGenres, genres }) {
 
     const [view, setView] = useState(false);
 
@@ -29,6 +29,10 @@ function BooksUp({ idPage, category, setText, filters,
                         copyBooks={copyBooks}
                         setCopy={setCopy}
                         setBooks={setBooks}
+                        category={category}
+                        setCategory={setCategory}
+                        setGenres={setGenres}
+                        genres={genres}
                     /> : null
             }
         </>

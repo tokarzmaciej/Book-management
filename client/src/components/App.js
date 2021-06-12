@@ -52,6 +52,7 @@ function App() {
               category={category}
               setCategory={setCategory}
               genres={genres}
+              setGenres={setGenres}
               redirect={redirect}
               setRedirect={setRedirect}
               author={author}
@@ -66,7 +67,10 @@ function App() {
               actualBooks={books}
               setBooks={setBooks}
               copyBooks={copyBooks}
-              setCopy={setCopy} />}
+              setCopy={setCopy}
+              setCategory={setCategory}
+              setGenres={setGenres}
+            />}
           />
 
           <Route exact path="/favourites/:id" component={

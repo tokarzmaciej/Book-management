@@ -8,7 +8,7 @@ import '../../style/details/details.css';
 import { formatDateOnFrontend1 } from '../../functions/formatDate';
 import { buttonStyle2, responsive8, titleStyle1, titleStyle2, titleStyle3, titleStyle4 } from '../../style/bulma/style';
 
-function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
+function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy, setCategory, setGenres }) {
 
     const [{ title, author, genre, release_date, image_url, description, rating }, setBook] = useState({});
 
@@ -29,17 +29,29 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
     }, [id]);
 
     useEffect(() => {
+        let isMounted = true;
         if (del) {
             axios.delete(`http://localhost:5000/api/book/${id}`)
                 .then((res) => {
-                    setRedirect(true);
-                    setDel(false);
-                    setCopy(copyBooks.filter(book => book.id !== parseInt(id)));
-                    setBooks(actualBooks.filter(book => book.id !== parseInt(id)));
+                    if (isMounted) {
+                        setRedirect(true);
+                        setDel(false);
+                        const update = copyBooks.filter(book => book.id !== parseInt(id))
+                        const categories = update.reduce((total, { genre }) => {
+                            return { ...total, [genre]: false }
+                        }, {});
+                        setCategory(categories);
+                        setGenres(Object.keys(categories));
+                        setCopy(update);
+                        setBooks(actualBooks.filter(book => book.id !== parseInt(id)));
+                    }
                 })
                 .catch((err) => console.log(err));
         };
-    }, [id, del, copyBooks, actualBooks, setCopy, setBooks]);
+        return () => {
+            isMounted = false;
+        }
+    }, [id, del, copyBooks, actualBooks, setCopy, setBooks, setGenres, setCategory]);
 
     const deleteBook = () => {
         if (window.confirm('Are you sure you want to delete this book?')) {
@@ -65,6 +77,8 @@ function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
                                     copyBooks={copyBooks}
                                     setCopy={setCopy}
                                     setBooks={setBooks}
+                                    setCategory={setCategory}
+                                    setGenres={setGenres}
                                 /> : null
                             }
                             <p className={titleStyle1}>{title}</p>

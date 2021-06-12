@@ -8,7 +8,7 @@ import Details from './Details';
 import Description from './Description';
 import Footer from './Footer';
 
-function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
+function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks, category, setCategory, genres, setGenres }) {
     const initial = {
         title: "",
         author: "",
@@ -50,15 +50,21 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     }, [id]);
 
     useEffect(() => {
+        let isMounted = true;
         if (put && id !== undefined) {
             axios.put(`http://localhost:5000/api/book/${id}`, formatter(newBook))
                 .then((res) => {
-                    if (res.status.toString().startsWith("2")) {
+                    if (res.status.toString().startsWith("2") && isMounted) {
                         setSendPut(false)
                         setView(false);
                         const data = res.data;
                         data.release_date = formatDateOnFrontend2(data.release_date);
                         const update = copyBooks.map(book => book.id === parseInt(id) ? { ...book, ...data } : book);
+                        const categories = update.reduce((total, { genre }) => {
+                            return { ...total, [genre]: false }
+                        }, {});
+                        setCategory(categories);
+                        setGenres(Object.keys(categories));
                         setCopy(update);
                         setBooks(update);
                         alert("Success !");
@@ -69,7 +75,10 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
                 })
                 .catch((err) => console.log(err));
         };
-    }, [put, newBook, id, setView, setCopy, setBooks, copyBooks]);
+        return () => {
+            isMounted = false;
+        }
+    }, [put, newBook, id, setView, setCopy, setBooks, copyBooks, setCategory, setGenres]);
 
     useEffect(() => {
         if (post) {
@@ -79,6 +88,12 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
                         setRedirect(true);
                         setSendPost(false);
                         setView(false);
+                        const update = [...copyBooks, res.data];
+                        const categories = update.reduce((total, { genre }) => {
+                            return { ...total, [genre]: false }
+                        }, {});
+                        setCategory(categories);
+                        setGenres(Object.keys(categories));
                         setCopy([res.data, ...copyBooks]);
                         setBooks([res.data, ...copyBooks]);
                         alert("Success !");
@@ -88,24 +103,24 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
                 })
                 .catch((err) => console.log(err));
         };
-    }, [newBook, post, setCopy, copyBooks, setView, setBooks]);
+    }, [newBook, post, setCopy, copyBooks, setView, setBooks, setGenres, setCategory]);
 
     const validate = ({ title, author, genre, image_url, release_date, description }) => {
         const errors = {};
         if (title === "") {
             errors.title = 'Required*';
         };
-        if (titles.includes(title.toUpperCase()) && put) {
+        if (titles.includes(title.toUpperCase()) && id === undefined) {
             errors.title = 'This title already exists';
         };
         if (/[<>,?!*]+/i.test(title)) {
-            errors.title = 'Bad char (<>,.?!*)';
+            errors.title = 'Bad char (<>,?!*)';
         };
         if (author === "") {
             errors.author = 'Required*';
         };
         if (/[<>,?!*]+/i.test(author)) {
-            errors.author = 'Bad char (<>,.?!*)';
+            errors.author = 'Bad char (<>,?!*)';
         };
         if (genre === "") {
             errors.genre = 'Required*';
@@ -123,7 +138,7 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
             errors.description = 'Required*';
         };
         if (/[<>]+/i.test(description)) {
-            errors.description = 'Bad char (<>,.?!*)';
+            errors.description = 'Bad char (< >)';
         };
         if (image_url === "" || !/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/i.test(image_url)) {
             errors.image_url = 'Invalid image url';
@@ -140,8 +155,10 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
             };
         }
         else {
-            setNewBook(values);
-            setSendPut(true);
+            if (window.confirm('Are you sure you want to send?')) {
+                setNewBook(values);
+                setSendPut(true);
+            }
         };
     };
 
