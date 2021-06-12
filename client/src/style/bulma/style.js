@@ -24,7 +24,7 @@ export const titleStyle2 = `title has-text-danger-dark ${responsive2}`;
 export const titleStyle3 = `has-text-grey-dark ${responsive2}`;
 export const titleStyle4 = `title has-text-link-dark ${responsive2}`;
 export const titleStyle5 = `title has-text-weight-bold has-text-link-dark is-centered ${responsive5}`;
-export const titleStyle6 = "title is-size-6 mb-1 has-text-weight-bold";
+export const titleStyle6 = "title is-size-6 mb-3 mt-1 has-text-weight-bold";
 export const titleStyle7 = `title has-text-white-bis ${responsive5}`;
 
 export const dropDownStyle1 = `dropdown-item ${responsive6}`;

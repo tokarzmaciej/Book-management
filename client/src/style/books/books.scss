@@ -125,7 +125,7 @@
             .Books{
                 margin: 0% 0% 0% 0%;
                 grid-column: 1/2;
-                max-height: 2600px;
+                max-height: 2900px;
                 min-height: 2200px;
                 height: auto;
                 .top{
@@ -138,6 +138,9 @@
                         }
                         button{
                             margin-bottom: 2%;
+                        }
+                        .modal{
+                            width: 385px;
                         }
                     }
                     .down{

@@ -195,7 +195,7 @@
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
-    max-height: 2600px;
+    max-height: 2900px;
     min-height: 2200px;
     height: auto;
   }
@@ -214,6 +214,9 @@
   }
   #ListBooks .Books .top .up button {
     margin-bottom: 2%;
+  }
+  #ListBooks .Books .top .up .modal {
+    width: 385px;
   }
   #ListBooks .Books .top .down {
     margin-left: 0%;

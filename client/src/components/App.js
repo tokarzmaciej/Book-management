@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import Books from "./Books";
 import Favourites from './Favourites';
 import TopFive from './TopFive';
@@ -36,7 +36,7 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={TopFive} />
+          <Route exact path="/top5" component={() => <TopFive copyBooks={copyBooks} />} />
           <Route exact path="/books/:id" component={
             (routerProps) => <Books
               id={parseInt(routerProps.match.params.id)}
@@ -79,6 +79,7 @@ function App() {
           }
           />
         </Switch>
+        <Redirect to="/books/1" />
       </Router>
     </>
   );

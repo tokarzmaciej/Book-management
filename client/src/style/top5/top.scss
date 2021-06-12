@@ -1,0 +1,129 @@
+#TopBook{
+    margin-bottom: 3%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 5%;
+    .level{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 6%;
+        .circle{
+            height: 90px;
+            width: 90px;
+            background-color: rgb(224, 96, 96);
+            font-size: 300%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 255, 255);
+        }
+    }
+    .all{
+        .image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: none;
+            img:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+                box-shadow: 3px 3px 3px 3px;
+                position: relative;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            img{
+                max-width:200px;
+                max-height:300px;
+                box-shadow: 2px 0px 1px 4px gray;
+
+            }
+            .stars {
+                    margin-top: 1%;
+                    margin-bottom: 0%;
+                    display: flex;
+                    justify-content: center;
+                    direction: rtl;  
+                    span{
+                        font-size: 200%;
+                        color: rgb(189, 189, 189);
+                        text-decoration: none;
+                        transition: all 0.5s;
+                        margin: 4px;
+                        pointer-events: none;
+
+                    }
+                    .s {
+                        color: rgb(207, 176, 0);
+                    }
+                    
+                }
+        }      
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        margin-top: 1%;
+        a{
+            border-bottom: 5px solid brown ;
+            width: 65%;
+            padding-bottom: 2%;
+            text-align: center;
+        }
+    }   
+}
+
+
+@media all and (max-width: 414px){
+    #TopBook{
+        width: 414px;
+        margin-top: 15%;
+            .all{
+                .image{
+                    img:hover {
+                        transform: scale(1.1);
+                    }
+                }  
+        }
+        .title{
+            a{
+                width: 85%;
+            }
+        } 
+    }
+}
+
+@media (max-width: 640px) and (min-width: 414px){
+       #TopBook{
+        width: auto;
+            .all{
+                .image{
+                    img:hover {
+                        transform: scale(1.1);
+                    
+                    }
+                }  
+            }
+            .title{
+                a{
+                    width: 85%;
+                }
+            }  
+       
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 640px){
+        #TopBook{
+            width: auto;
+            .all{
+                .image{
+                    img:hover {
+                        transform: scale(1.1);
+                    }
+                }  
+        }
+    }
+}

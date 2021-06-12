@@ -134,6 +134,10 @@
           flex-direction: row;
 }
 
+#DetailsBook .Book .notification .center .image .stars .rating .yes span {
+  margin-left: 4px;
+}
+
 #DetailsBook .Book .notification .center .image .stars .rating .yes .checked {
   color: gold;
   display: -webkit-box;
@@ -164,7 +168,6 @@
 }
 
 #DetailsBook .Book .notification .center .image .stars .rating .no span {
-  font-size: auto;
   color: #bdbdbd;
   text-decoration: none;
   -webkit-transition: all 0.5s;

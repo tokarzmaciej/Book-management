@@ -29,13 +29,51 @@
 
 .Menu div:hover {
   cursor: none;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   -webkit-box-shadow: 0px 0px 0px 0px;
           box-shadow: 0px 0px 0px 0px;
   position: relative;
   border-radius: 0px;
   padding: 0px;
+}
+
+.Menu .header {
+  margin-top: 8%;
+}
+
+.Menu .back {
+  margin-top: 0%;
+  margin-right: 5%;
+  -webkit-transform: none;
+          transform: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.Menu .back button {
+  font-size: 400%;
+  background-color: #3273dc;
+  border: none;
+  color: white;
+}
+
+.Menu .back:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  margin-top: 0%;
+  margin-right: 10%;
+}
+
+.Menu .back:hover button {
+  font-size: 400%;
+  background-color: #3273dc;
+  border: none;
+  color: white;
 }
 
 @media all and (max-width: 414px) {
@@ -46,11 +84,29 @@
     width: 414px;
     min-height: 500px;
   }
+  .Menu .header {
+    margin-top: 5%;
+  }
+  .Menu .back button {
+    font-size: 400%;
+  }
+  .Menu .back:hover button {
+    font-size: 400%;
+  }
 }
 
 @media (max-width: 640px) and (min-width: 414px) {
   .Menu {
     width: auto;
+  }
+  .Menu .header {
+    margin-top: 10%;
+  }
+  .Menu .back button {
+    font-size: 350%;
+  }
+  .Menu .back:hover button {
+    font-size: 350%;
   }
   .Menu div .title {
     font-size: 130%;

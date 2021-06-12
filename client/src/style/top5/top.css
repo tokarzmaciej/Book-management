@@ -1,0 +1,151 @@
+#TopBook {
+  margin-bottom: 3%;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 5%;
+}
+
+#TopBook .level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 6%;
+}
+
+#TopBook .level .circle {
+  height: 90px;
+  width: 90px;
+  background-color: #e06060;
+  font-size: 300%;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+#TopBook .all .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#TopBook .all .image img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-box-shadow: 3px 3px 3px 3px;
+          box-shadow: 3px 3px 3px 3px;
+  position: relative;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#TopBook .all .image img {
+  max-width: 200px;
+  max-height: 300px;
+  -webkit-box-shadow: 2px 0px 1px 4px gray;
+          box-shadow: 2px 0px 1px 4px gray;
+}
+
+#TopBook .all .image .stars {
+  margin-top: 1%;
+  margin-bottom: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  direction: rtl;
+}
+
+#TopBook .all .image .stars span {
+  font-size: 200%;
+  color: #bdbdbd;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 4px;
+  pointer-events: none;
+}
+
+#TopBook .all .image .stars .s {
+  color: #cfb000;
+}
+
+#TopBook .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1%;
+}
+
+#TopBook .title a {
+  border-bottom: 5px solid brown;
+  width: 65%;
+  padding-bottom: 2%;
+  text-align: center;
+}
+
+@media all and (max-width: 414px) {
+  #TopBook {
+    width: 414px;
+    margin-top: 15%;
+  }
+  #TopBook .all .image img:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  #TopBook .title a {
+    width: 85%;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 414px) {
+  #TopBook {
+    width: auto;
+  }
+  #TopBook .all .image img:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  #TopBook .title a {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 640px) {
+  #TopBook {
+    width: auto;
+  }
+  #TopBook .all .image img:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+/*# sourceMappingURL=top.css.map */
