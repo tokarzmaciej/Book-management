@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import axios from 'axios';
 
 function Stars({ id, rating, copyBooks, setBooks, setCopy }) {
     const stars = [5, 4, 3, 2, 1];
@@ -55,7 +55,6 @@ function Stars({ id, rating, copyBooks, setBooks, setCopy }) {
                         <span key={star} className="">★</span>
                 })
             }
-
         </div >
     );
 }

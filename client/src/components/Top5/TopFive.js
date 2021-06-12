@@ -1,7 +1,7 @@
 import React from 'react';
-import Menu from './Menu';
+import Menu from '../Helpers/Menu';
 import TopBook from './TopBook';
-import '../style/top5/top5.css'
+import '../../style/top5/top5.css';
 
 
 function TopFive({ copyBooks }) {
@@ -17,6 +17,6 @@ function TopFive({ copyBooks }) {
             </div>
         </div>
     );
-}
+};
 
 export default TopFive;

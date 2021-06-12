@@ -1,3 +1,6 @@
+#root{
+    font-family: 'Lato',sans-serif;
+}
 #Favourite{
     width: 1280px;
     min-height: 100vh;
@@ -23,21 +26,20 @@
             justify-content: center;
             align-items: center;
         }
-     
     }
 }
 
 @media all and (max-width: 414px){
-        #Favourite{
-            width: 414px;
-            width: 414px;
-            max-height:3400px;
-            grid-template-columns: repeat(1,1fr);
-            .favourites{
+    #Favourite{
+        width: 414px;
+        grid-template-columns: repeat(1,1fr);
+        .favourites{
+            grid-column: 1/2;
+            .content{
                 grid-column: 1/2;
             }
-            
         }
+    }
 }
 
 @media (max-width: 640px) and (min-width: 414px){

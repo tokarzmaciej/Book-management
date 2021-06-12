@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
-import Books from "./Books";
-import Favourites from './Favourites';
-import TopFive from './TopFive';
-import DetailsBook from './DetailsBook';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import Books from './Books/Books';
+import Favourites from './Favorites/Favourites';
+import TopFive from './Top5/TopFive';
+import DetailsBook from './Books/DetailsBook';
 
 function App() {
   const [books, setBooks] = useState([]);

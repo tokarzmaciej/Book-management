@@ -4,7 +4,6 @@
 }
 #ListBooks{
     width: 1280px;
-    min-height: 100vh;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -118,91 +117,90 @@
 }
 
 @media all and (max-width: 414px){
-        #ListBooks{
-            width: 414px;
-            max-height:3400px;
-            grid-template-columns: repeat(1,1fr);
-            .Books{
-                margin: 0% 0% 0% 0%;
-                grid-column: 1/2;
-                max-height: 2900px;
-                min-height: 2200px;
-                height: auto;
-                .top{
-                    margin: 0%;
-                    .up{
-                        flex-direction: column;
-                        margin: 7% 11% 0 5%;
-                        input{
-                            margin-bottom: 7%;
-                        }
-                        button{
-                            margin-bottom: 2%;
-                        }
-                        .modal{
-                            width: 385px;
-                        }
+    #ListBooks{
+        width: 414px;
+        max-height:3450px;
+        grid-template-columns: repeat(1,1fr);
+        .Books{
+            margin: 0% 0% 0% 0%;
+            grid-column: 1/2;
+            max-height: 2900px;
+            min-height: 2200px;
+            height: auto;
+            .top{
+                margin: 0%;
+                .up{
+                    flex-direction: column;
+                    margin: 7% 11% 0 5%;
+                    input{
+                        margin-bottom: 7%;
                     }
-                    .down{
-                        margin-left: 0%;
-                        margin-right: 0%;
-                        grid-template-rows: repeat(2,1fr);
-                        form{
-                            grid-row: 1/2;
-                            margin: 15% 0% 5% 15%;
-                        }
-                        .sort-filters{
-                            width: 414px;
-                            grid-column: 1/2;
-                            flex-direction: row;
-                            justify-content: flex-start;   
-                            margin: 0%;
-                            .dropdown{
-                                margin-left: -10%;
-                                margin-right: 12%;
-                            }
-                        }
+                    button{
+                        margin-bottom: 2%;
+                    }
+                    .modal{
+                        width: 385px;
                     }
                 }
-                .center{
-                    margin: 5% 5% 0% 0%;
-                    min-height: 2100px;
-
-                }
-                .footer{
-                    max-height: 80px;
-                    margin: 15% 10% 0% 5%;
-                    
+                .down{
+                    margin-left: 0%;
+                    margin-right: 0%;
+                    grid-template-rows: repeat(2,1fr);
+                    form{
+                        grid-row: 1/2;
+                        margin: 15% 0% 5% 15%;
+                    }
+                    .sort-filters{
+                        width: 414px;
+                        grid-column: 1/2;
+                        flex-direction: row;
+                        justify-content: flex-start;   
+                        margin: 0%;
+                        .dropdown{
+                            margin-left: -10%;
+                            margin-right: 12%;
+                        }
+                    }
                 }
             }
-        
+            .center{
+                margin: 5% 5% 0% 0%;
+                min-height: 2100px;
+
+            }
+            .footer{
+                max-height: 80px;
+                margin: 15% 10% 0% 5%;
+                
+            }
         }
+    }
 }
 
 @media (max-width: 640px) and (min-width: 414px){
-        #ListBooks{
-            width: auto;
-            .Books{
-                margin: 3%;
-                .top{
-                    margin: 0%;
-                    .up{
-                        button{
-                            margin-right: 1%;
-                            border: 2px solid;
-                        }
-                        input{
-                            margin-right: 3%;
-                        }
+    #ListBooks{
+        width: auto;
+        .Books{
+            margin: 3%;
+            .top{
+                margin: 0%;
+                .up{
+                    button{
+                        margin-right: 1%;
+                        border: 2px solid;
                     }
-                    .down{
-                        .sort-filters{
-                            margin-left: 15%;
-                        }
+                    input{
+                        margin-right: 3%;
+                    }
+                }
+                .down{
+                    .sort-filters{
+                        margin-left: 15%;
                     }
                 }
             }
         }
+    }
 }
 
 @media (max-width: 1280px) and (min-width: 640px){
@@ -220,7 +218,6 @@
                     }
                 }
             }
-           
         }
     }
 }

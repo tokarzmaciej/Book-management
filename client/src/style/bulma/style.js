@@ -15,6 +15,8 @@ export const buttonStyle1 = buttonStyle + responsive3;
 export const buttonStyle2 = buttonStyle + "is-size-6";
 export const buttonStyle3 = `button is-rounded ${responsive6}`;
 export const buttonStyle4 = "button has-background-danger-dark has-text-white-ter";
+export const buttonStyle5 = "has-background-link-light has-text-danger";
+export const buttonStyle6 = "has-background-link-light has-text-grey-dark";
 
 export const inputStyle1 = `input is-rounded is-danger is-outlined ${responsive3}`;
 export const inputStyle2 = "input is-rounded";

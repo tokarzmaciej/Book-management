@@ -1,3 +1,6 @@
+#root{
+    font-family: 'Lato',sans-serif;
+}
 #Book{
     margin: 1%;
     margin-bottom: 3%;
@@ -36,14 +39,11 @@
                         transition: all 0.5s;
                         margin: 4px;
                         pointer-events: none;
-
                     }
                     .s {
                         color: gold;
-                    }
-                    
-                }
-                
+                    }     
+                }   
                 img:hover {
                     cursor: pointer;
                     transform: scale(1.1);
@@ -65,33 +65,32 @@
                     flex-direction: column;
                     justify-content: center;
                     margin-left: 5%;
-                }
+            }
         }
     }   
 }
 
 
 @media all and (max-width: 414px){
-        #Book{
-            width: 414px;
-            .notification{
-                padding: 1%;
-                .content{
-                margin-left: 20%;
-                }
-                .all{
-                    .image{
-                        margin: 0%;
-                        img{
-                            max-width:200px;
-                            max-height:240px;
-                            box-shadow: 3px 3px 3px 3px;
-                        }
+    #Book{
+        width: 414px;
+        .notification{
+            padding: 1%;
+            .content{
+            margin-left: 20%;
+            }
+            .all{
+                .image{
+                    margin: 0%;
+                    img{
+                        max-width:200px;
+                        max-height:240px;
+                        box-shadow: 3px 3px 3px 3px;
                     }
                 }
             }
-            
-        }
+        }   
+    }
 }
 
 @media (max-width: 640px) and (min-width: 414px){
@@ -110,25 +109,23 @@
                 }
             }
         }
-       
     }
 }
 
 @media (max-width: 1280px) and (min-width: 640px){
-        #Book{
-            width: auto;
-            .notification{
-                padding: 0%;
-                .all{
-                     .content{
-                        p{
-                            margin: 7%;
-                        }
-                        u{
-                            margin: 2%;
-                        }
+    #Book{
+        width: auto;
+        .notification{
+            padding: 0%;
+            .all{
+                .content{
+                    p{
+                        margin: 7%;
                     }
-                 
+                    u{
+                        margin: 2%;
+                    }
+                }
             }
         }
     }

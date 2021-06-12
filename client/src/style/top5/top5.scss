@@ -19,17 +19,23 @@
 }
 
 @media all and (max-width: 414px){
+    #root{
+        min-height:1410px;
+        max-height:3600px;
         #TopFive{
             width: 414px;
-            max-height:3550px;
+            min-height:3600px;
             grid-template-columns: repeat(1,1fr);
             .top{
                 grid-column: 1/2;
-                max-height: 3000px;
-
+                min-height: 3000px;
             }
-            
+            .Menu{
+                height: 540px;
+            }
         }
+       
+    }
 }
 
 @media (max-width: 640px) and (min-width: 414px){
@@ -50,17 +56,16 @@
 
 @media (max-width: 1280px) and (min-width: 640px){
     #root{
-        max-height:3300px;
+        max-height:3800px;
         #TopFive{
             width: auto;
-            max-height:3300px;
+            max-height:3400px;
             .top{
-                max-height:3200px;
+                max-height:3300px;
             }
         }
         .Menu{
-            max-height:3300px;
+            max-height:3700px;
         }
     }
-    
 }

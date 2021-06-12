@@ -1,5 +1,5 @@
 import React from 'react';
-import FormBook from './FormBook';
+import FormBook from '../Books/Form/FormBook';
 
 function Modal({ id, idPage, setView, copyBooks, setCopy, setBooks }) {
 

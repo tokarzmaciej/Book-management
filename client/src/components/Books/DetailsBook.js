@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Menu from "./Menu";
-import axios from "axios";
-import "../style/details/details.css";
+import Menu from '../Helpers/Menu';
+import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import Modal from './Modal';
-import Stars from './Stars';
-import { formatDateOnFrontend1 } from '../functions/formatDate';
-import { buttonStyle2, responsive8, titleStyle1, titleStyle2, titleStyle3, titleStyle4 } from '../style/bulma/style'
+import Modal from '../Helpers/Modal';
+import Stars from '../Helpers/Stars';
+import '../../style/details/details.css';
+import { formatDateOnFrontend1 } from '../../functions/formatDate';
+import { buttonStyle2, responsive8, titleStyle1, titleStyle2, titleStyle3, titleStyle4 } from '../../style/bulma/style';
 
 function DetailsBook({ id, actualBooks, copyBooks, setBooks, setCopy }) {
 

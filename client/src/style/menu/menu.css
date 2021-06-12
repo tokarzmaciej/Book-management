@@ -82,7 +82,7 @@
     -ms-grid-column-span: 1;
     grid-column: 1/2;
     width: 414px;
-    min-height: 500px;
+    min-height: 540px;
   }
   .Menu .header {
     margin-top: 5%;

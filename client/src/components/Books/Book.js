@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import '../style/book/book.css';
+import '../../style/book/book.css';
 import { Link } from 'react-router-dom';
-import Stars from './Stars';
-import { formatDateOnFrontend1 } from '../functions/formatDate';
-import { responsive1, responsive2, fontStyle1 } from '../style/bulma/style';
+import Stars from '../Helpers/Stars';
+import { formatDateOnFrontend1 } from '../../functions/formatDate';
+import { responsive1, responsive2, fontStyle1, buttonStyle5, buttonStyle6 } from '../../style/bulma/style';
 
 function Book({ id, title, author, release_date, image_url, rating, favourite, setFavourite }) {
     const heart = favourite.includes(id) ? true : false;
     const [liked, setLiked] = useState(heart);
 
-    const addToFavoourite = () => {
+    const addToFavourite = () => {
         if (window.confirm('Are you sure you want to add this book to favourites?')) {
             setFavourite([...favourite, id]);
             setLiked(true);
         }
     };
+
     const deleteFavourite = () => {
         if (window.confirm('Are you sure you want to delete this book from favourites?')) {
             setFavourite(favourite.filter(idBook => idBook !== id));
@@ -27,12 +28,12 @@ function Book({ id, title, author, release_date, image_url, rating, favourite, s
             <div className="box has-background-link-light is-size-4">
                 <div className="notification has-background-link-light">
                     {liked ?
-                        <button className="has-background-link-light has-text-danger"
+                        <button className={buttonStyle5}
                             onClick={deleteFavourite}>
                             ♥
                         </button> :
-                        <button className="has-background-link-light has-text-grey-dark"
-                            onClick={addToFavoourite}>
+                        <button className={buttonStyle6}
+                            onClick={addToFavourite}>
                             ♥
                         </button>
                     }
@@ -54,7 +55,7 @@ function Book({ id, title, author, release_date, image_url, rating, favourite, s
             </div>
         </div>
     );
-}
+};
 
 export default Book;
 

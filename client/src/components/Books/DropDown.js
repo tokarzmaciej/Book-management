@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import { buttonStyle3, dropDownStyle1, dropDownStyle2, iconStyle1, responsive4 } from '../style/bulma/style';
+import { buttonStyle3, dropDownStyle1, dropDownStyle2, iconStyle1, responsive4 } from '../../style/bulma/style';
 
 
 function DropDown({ values, setBooks, booksFromApi, setActual,
@@ -14,12 +14,21 @@ function DropDown({ values, setBooks, booksFromApi, setActual,
         return books.sort((bookA, bookB) => bookA.release_date.localeCompare(bookB.release_date));
     };
 
+    const ratingSort = (books) => books.sort((bookA, bookB) => bookB.rating - bookA.rating);
+
     const sort = (values, el, icon) => {
         setBooks(values);
         setActual(el);
         setIcon(icon);
     };
-
+    const onClick1 = () => {
+        setAuthor(author);
+        filters(category, author)
+    };
+    const onClick2 = () => {
+        setAuthor("");
+        filters(category, "");
+    }
     return (
         <div className="dropdown is-hoverable is-size-2">
             <div className="dropdown-trigger">
@@ -35,19 +44,12 @@ function DropDown({ values, setBooks, booksFromApi, setActual,
                     {values[0] !== "Sort by" ? values.map((author, index) => {
                         return author !== "Author" ?
                             <Link to="/books/1" className={dropDownStyle2} key={index}
-                                onClick={() => {
-                                    setAuthor(author);
-                                    filters(category, author);
-                                }}
+                                onClick={onClick1}
                             >
                                 {author}
                             </Link> :
                             <Link to="/books/1" className={dropDownStyle2} key={index}
-                                onClick={() => {
-                                    setAuthor("");
-                                    filters(category, "");
-                                }
-                                }
+                                onClick={onClick2}
                             >
                                 {author}
                             </Link>
@@ -81,13 +83,16 @@ function DropDown({ values, setBooks, booksFromApi, setActual,
                                     <i className="fas fa-sort-up" aria-hidden="true"></i>
                                 </span>
                             </Link>
-                            <Link to="/books/1" className={dropDownStyle1}>
+                            <Link to="/books/1" className={dropDownStyle1} onClick={() =>
+                                sort(ratingSort(booksFromApi).reverse(), values[5], "fas fa-sort-numeric-down")}>
                                 <span>{values[5]}</span>
                                 <span className={iconStyle1}>
                                     <i className="fas fa-sort-numeric-down" aria-hidden="true"></i>
                                 </span>
                             </Link>
-                            <Link to="/books/1" className={dropDownStyle1}>
+                            <Link to="/books/1" className={dropDownStyle1} onClick={() =>
+                                sort(ratingSort(booksFromApi), values[6], "fa-sort-numeric-up")}
+                            >
                                 <span>{values[6]}</span>
                                 <span className={iconStyle1}>
                                     <i className="fas fa-sort-numeric-up" aria-hidden="true"></i>

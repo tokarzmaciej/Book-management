@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { paginationStyle1 } from '../style/bulma/style';
+import { paginationStyle1 } from '../../style/bulma/style';
 
 function Pagination({ id, endPage, arrayToPagination, link }) {
 
@@ -54,6 +54,6 @@ function Pagination({ id, endPage, arrayToPagination, link }) {
             </ul>
         </footer>
     );
-}
+};
 
 export default Pagination;

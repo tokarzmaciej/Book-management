@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import axios from "axios";
+import { Formik, Form } from 'formik';
+import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import { buttonStyle4, inputStyle2, titleStyle5, titleStyle6, validationStyle } from '../style/bulma/style';
-import { formatDateToBackend, formatDateOnFrontend1, formatDateOnFrontend2 } from '../functions/formatDate';
+import { formatDateToBackend, formatDateOnFrontend1, formatDateOnFrontend2 } from '../../../functions/formatDate';
+import Primary from './Primary';
+import Details from './Details';
+import Description from './Description';
+import Footer from './Footer';
 
 function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
     const initial = {
@@ -165,57 +168,31 @@ function FormBook({ id, idPage, copyBooks, setView, setCopy, setBooks }) {
             validate={validate}>
             {({ handleSubmit, resetForm, initialValues: { title, author, genre, release_date, image_url, description } }) => (
                 <Form onSubmit={handleSubmit}>
-                    <div className="primary">
-                        <p className={titleStyle5}>Primary information</p>
-                        <p className={titleStyle6}>Title</p>
-                        <Field className={inputStyle2} name="title" placeholder="Title" value={title}
-                            onChange={(event) => handleChange("title", event)} />
-                        <h5 className={validationStyle} ><ErrorMessage name="title" /></h5>
-
-                        <p className={titleStyle6}>Author</p>
-                        <Field className={inputStyle2} name="author" placeholder="Author" value={author}
-                            onChange={(event) => handleChange("author", event)} />
-                        <h5 className={validationStyle} ><ErrorMessage name="author" /></h5>
-
-                        <p className={titleStyle6}>Genre</p>
-                        <Field className={inputStyle2} name="genre" placeholder="Genre" value={genre}
-                            onChange={(event) => handleChange("genre", event)} />
-                        <h5 className={validationStyle} ><ErrorMessage name="genre" /></h5>
-                    </div>
-
-                    <div className="details">
-                        <p className={titleStyle5}>Details</p>
-                        <p className={titleStyle6}>Relase date</p>
-                        <Field className={inputStyle2} type="date" name="release_date"
-                            value={release_date !== undefined && release_date.slice(0, 10)}
-                            onChange={(event) => handleChange("release_date", event)} />
-                        <h5 className={validationStyle} ><ErrorMessage name="release_date" /></h5>
-
-                        <p className={titleStyle6}>Image URL</p>
-                        <Field className={inputStyle2} name="image_url" placeholder="Image url" value={image_url}
-                            onChange={(event) => handleChange("image_url", event)} />
-                        <h5 className={validationStyle} ><ErrorMessage name="image_url" /></h5>
-                        <p className={titleStyle6}>Description</p>
-                    </div>
-
-                    <div className="description">
-                        <textarea className="textarea" type="textarea" name="description" placeholder="Description" value={description}
-                            onChange={(event) => handleChange("description", event)} />
-                        <h5 className={validationStyle} ><ErrorMessage name="description" /></h5>
-                    </div>
-
-                    <footer className="modal-card-foot">
-                        <button type="button" className={buttonStyle4}
-                            onClick={() => reset(resetForm)}
-                        >
-                            Reset
-                        </button>
-                        <button type="submit" className="button is-success">Save changes</button>
-                    </footer>
+                    <Primary
+                        handleChange={handleChange}
+                        title={title}
+                        author={author}
+                        genre={genre}
+                    />
+                    <Details
+                        handleChange={handleChange}
+                        release_date={release_date}
+                        image_url={image_url}
+                    />
+                    <Description
+                        handleChange={handleChange}
+                        description={description}
+                    />
+                    <Footer
+                        resetForm={resetForm}
+                        reset={reset}
+                    />
                     {redirect ? <Redirect to={`/books/${idPage}`} /> : null}
+
                 </Form>
             )}
         </Formik>
+
     );
 };
 

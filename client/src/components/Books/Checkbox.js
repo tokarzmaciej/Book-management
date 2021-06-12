@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
-import { responsive4 } from '../style/bulma/style';
+import { responsive4 } from '../../style/bulma/style';
 
 function Checkbox({ category, genres, handleChange }) {
 
@@ -26,6 +26,6 @@ function Checkbox({ category, genres, handleChange }) {
             )}
         </Formik>
     );
-}
+};
 
 export default Checkbox;

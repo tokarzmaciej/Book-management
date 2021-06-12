@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect, useHistory } from 'react-router-dom';
-import '../style/menu/menu.css';
-import { titleStyle7 } from '../style/bulma/style';
+import '../../style/menu/menu.css';
+import { titleStyle7 } from '../../style/bulma/style';
 
 function Menu() {
     const [redirect, setRedirect] = useState(false);

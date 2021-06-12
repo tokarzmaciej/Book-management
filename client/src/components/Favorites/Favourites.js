@@ -1,8 +1,8 @@
 import React from 'react';
-import Menu from "./Menu";
-import Pagination from './Pagination';
+import Menu from '../Helpers/Menu';
+import Pagination from '../Helpers/Pagination';
 import FavouriteBook from './FavouriteBook';
-import '../style/favourites/favourites.css'
+import '../../style/favourites/favourites.css'
 
 function Favourites({ id, favourite, copyBooks, setFavourite }) {
 
@@ -42,6 +42,6 @@ function Favourites({ id, favourite, copyBooks, setFavourite }) {
             </div>
         </div>
     );
-}
+};
 
 export default Favourites;

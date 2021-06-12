@@ -1,4 +1,4 @@
-import Book from "./Book"
+import Book from './Book';
 
 function ListBooks({ books, favourite, setFavourite }) {
     return (

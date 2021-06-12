@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { responsive5, fontStyle1 } from '../style/bulma/style';
-import '../style/favourites/favourite.css';
+import { responsive5, fontStyle1, buttonStyle5 } from '../../style/bulma/style';
+import '../../style/favourites/favourite.css';
 
 
 function FavouriteBook({ id, image_url, title, favourite, setFavourite }) {
@@ -14,7 +14,7 @@ function FavouriteBook({ id, image_url, title, favourite, setFavourite }) {
         <div id="FavouriteBook">
             <div className="box has-background-link-light is-size-4">
                 <div className="notification has-background-link-light">
-                    <button className="has-background-link-light has-text-danger"
+                    <button className={buttonStyle5}
                         onClick={deleteFavourite}
                     >
                         ♥
@@ -29,6 +29,6 @@ function FavouriteBook({ id, image_url, title, favourite, setFavourite }) {
             </div>
         </div>
     );
-}
+};
 
 export default FavouriteBook;

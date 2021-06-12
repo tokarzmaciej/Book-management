@@ -53,25 +53,24 @@
 }
 
 @media all and (max-width: 414px){
-        .Menu{
-            grid-column: 1/2;
-            width: 414px;
-            min-height: 500px;
-            .header{
-                margin-top: 5%;
-            }
-            .back{
-                button{
-                    font-size: 400%;
-                }
-            }
-            .back:hover{
-                button{
-                    font-size: 400%;
-                }
+    .Menu{
+        grid-column: 1/2;
+        width: 414px;
+        min-height: 540px;
+        .header{
+            margin-top: 5%;
+        }
+        .back{
+            button{
+                font-size: 400%;
             }
         }
-       
+        .back:hover{
+            button{
+                font-size: 400%;
+            }
+        }
+    } 
 }
 
 @media (max-width: 640px) and (min-width: 414px){       

@@ -1,3 +1,7 @@
+#root {
+  font-family: 'Lato',sans-serif;
+}
+
 #Favourite {
   width: 1280px;
   min-height: 100vh;
@@ -49,12 +53,15 @@
 @media all and (max-width: 414px) {
   #Favourite {
     width: 414px;
-    width: 414px;
-    max-height: 3400px;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
   #Favourite .favourites {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+  }
+  #Favourite .favourites .content {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;

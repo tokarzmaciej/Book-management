@@ -1,12 +1,12 @@
-import Menu from "./Menu";
-import Pagination from "./Pagination";
+import Menu from "../Helpers/Menu";
+import Pagination from "../Helpers/Pagination";
 import ListBooks from "./ListBooks";
 import DropDown from "./DropDown";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import Checkbox from "./Checkbox";
 import BooksUp from "./BooksUp";
-import "../style/books/books.css";
-import React, { useState } from 'react';
+import "../../style/books/books.css";
+import React, { useState } from "react";
 
 
 function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
@@ -25,7 +25,7 @@ function Books({ id, size, booksFromApi, setBooks, icon, actualSort, setIcon,
     const books = booksFromApi.slice((id - 1) * 5, id * 5);
 
     const sortValues = ["Sort by", "Sort by", "Sort by", "Sort by date",
-        "Sort by date", "Sort by", "Sort by"];
+        "Sort by date", "Sort by ★", "Sort by ★"];
 
     const authors = books.reduce((total, { author }) => {
         return !total.includes(author) ? [...total, author] : total
