@@ -21,14 +21,7 @@ function DropDown({ values, setBooks, booksFromApi, setActual,
         setActual(el);
         setIcon(icon);
     };
-    const onClick1 = () => {
-        setAuthor(author);
-        filters(category, author)
-    };
-    const onClick2 = () => {
-        setAuthor("");
-        filters(category, "");
-    }
+
     return (
         <div className="dropdown is-hoverable is-size-2">
             <div className="dropdown-trigger">
@@ -44,12 +37,18 @@ function DropDown({ values, setBooks, booksFromApi, setActual,
                     {values[0] !== "Sort by" ? values.map((author, index) => {
                         return author !== "Author" ?
                             <Link to="/books/1" className={dropDownStyle2} key={index}
-                                onClick={onClick1}
+                                onClick={() => {
+                                    setAuthor(author);
+                                    filters(category, author)
+                                }}
                             >
                                 {author}
                             </Link> :
                             <Link to="/books/1" className={dropDownStyle2} key={index}
-                                onClick={onClick2}
+                                onClick={() => {
+                                    setAuthor("");
+                                    filters(category, "");
+                                }}
                             >
                                 {author}
                             </Link>
